@@ -47,6 +47,7 @@
     <ClInclude Include="vXboxInterface.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="vJoyInterface.def" />
   </ItemGroup>
   <ItemGroup>
@@ -125,7 +126,7 @@
     <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin\</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Xbox|x64'">
-    <IncludePath>.;$(SolutionDir)..\..\..\inc;$(IncludePath)</IncludePath>
+    <IncludePath>.;$(SolutionDir)\inc;$(IncludePath);$(VC_IncludePath)</IncludePath>
     <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin\</ExecutablePath>
@@ -137,7 +138,7 @@
     <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin\</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Xbox|x64'">
-    <IncludePath>.;$(SolutionDir)..\..\..\inc;$(IncludePath)</IncludePath>
+    <IncludePath>.;$(SolutionDir)\inc;$(IncludePath);</IncludePath>
     <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin\</ExecutablePath>
@@ -150,7 +151,7 @@
     <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin\</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Xbox|Win32'">
-    <IncludePath>.;$(SolutionDir)..\..\..\inc;$(IncludePath);$(VC_IncludePath)</IncludePath>
+    <IncludePath>.;$(SolutionDir)\inc;$(IncludePath);$(VC_IncludePath)</IncludePath>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
@@ -164,7 +165,7 @@
     <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin\</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Xbox|Win32'">
-    <IncludePath>.;$(SolutionDir)..\..\..\inc;$(IncludePath);$(VC_IncludePath)</IncludePath>
+    <IncludePath>.;$(SolutionDir)\inc;$(IncludePath);$(VC_IncludePath)</IncludePath>
     <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>

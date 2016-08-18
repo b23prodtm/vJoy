@@ -10,7 +10,6 @@
 #define VJOYINTERFACE_API __declspec(dllimport)
 #endif
 
-
 ///////////////////////////// vJoy device (collection) status ////////////////////////////////////////////
 #ifndef VJDSTAT
 #define VJDSTAT

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 12.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FfbMon", "FfbMon", "{6FD535C1-9D8A-4AD2-835E-FA6BF948B424}"
 EndProject
@@ -85,6 +85,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreateVersion", "CreateVersion", "{946BFD6D-D144-4177-8721-5C3D2F721813}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test-vXboxInterface", "apps\common\vJoyInterface\Test-vXboxInterface\Test-vXboxInterface.vcxproj", "{8B2B1B77-C83A-4160-9CC3-2FEEFE0C407A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9E1FC894-F587-4FBA-8599-2F8C544E061A} = {9E1FC894-F587-4FBA-8599-2F8C544E061A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vXboxInterfaceCppWrap", "apps\common\vXboxInterfaceCppWrap\vXboxInterfaceCppWrap\vXboxInterfaceCppWrap.vcxproj", "{A2977561-932D-48D1-BDFC-30346B745478}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9E1FC894-F587-4FBA-8599-2F8C544E061A} = {9E1FC894-F587-4FBA-8599-2F8C544E061A}
 	EndProjectSection
@@ -1522,6 +1527,103 @@ Global
 		{8B2B1B77-C83A-4160-9CC3-2FEEFE0C407A}.Win8 Release|Win32.Build.0 = Release|Win32
 		{8B2B1B77-C83A-4160-9CC3-2FEEFE0C407A}.Win8 Release|x64.ActiveCfg = Release|x64
 		{8B2B1B77-C83A-4160-9CC3-2FEEFE0C407A}.Win8 Release|x64.Build.0 = Release|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|Any CPU.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|Any CPU.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|ARM.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|ARM.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|ARM64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|ARM64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|Win32.ActiveCfg = Debug-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|Win32.Build.0 = Debug-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|x64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|x64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|Any CPU.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|Any CPU.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|ARM.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|ARM.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|ARM64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|ARM64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|Win32.ActiveCfg = Debug-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|Win32.Build.0 = Debug-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|x64.ActiveCfg = Debug-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|x64.Build.0 = Debug-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release|Any CPU.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release|Any CPU.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release|ARM.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release|ARM.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release|ARM64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release|ARM64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release|Win32.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release|Win32.Build.0 = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release|x64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release|x64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release-Xbox|Any CPU.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release-Xbox|ARM.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release-Xbox|ARM64.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release-Xbox|Win32.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release-Xbox|Win32.Build.0 = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release-Xbox|x64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Release-Xbox|x64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Debug|Any CPU.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Debug|Any CPU.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Debug|ARM.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Debug|ARM.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Debug|ARM64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Debug|ARM64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Debug|Win32.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Debug|Win32.Build.0 = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Debug|x64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Debug|x64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Release|Any CPU.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Release|Any CPU.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Release|ARM.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Release|ARM.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Release|ARM64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Release|ARM64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Release|Win32.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Release|Win32.Build.0 = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Release|x64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Vista Release|x64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Debug|Any CPU.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Debug|Any CPU.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Debug|ARM.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Debug|ARM.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Debug|ARM64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Debug|ARM64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Debug|Win32.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Debug|Win32.Build.0 = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Debug|x64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Debug|x64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Release|Any CPU.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Release|Any CPU.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Release|ARM.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Release|ARM.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Release|ARM64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Release|ARM64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Release|Win32.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Release|Win32.Build.0 = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Release|x64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win7 Release|x64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Debug|Any CPU.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Debug|Any CPU.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Debug|ARM.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Debug|ARM.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Debug|ARM64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Debug|ARM64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Debug|Win32.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Debug|Win32.Build.0 = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Debug|x64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Debug|x64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Release|Any CPU.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Release|Any CPU.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Release|ARM.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Release|ARM.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Release|ARM64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Release|ARM64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Release|Win32.ActiveCfg = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Release|Win32.Build.0 = Release-Xbox|Win32
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Release|x64.ActiveCfg = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Win8 Release|x64.Build.0 = Release-Xbox|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1552,5 +1654,6 @@ Global
 		{9EB6193B-FCC1-450F-9B1F-B64E8B380940} = {946BFD6D-D144-4177-8721-5C3D2F721813}
 		{946BFD6D-D144-4177-8721-5C3D2F721813} = {4F56177A-5705-42C4-8453-A28871834EA9}
 		{8B2B1B77-C83A-4160-9CC3-2FEEFE0C407A} = {15626DC7-E2CA-4CC1-B6F7-A069A014BF64}
+		{A2977561-932D-48D1-BDFC-30346B745478} = {15626DC7-E2CA-4CC1-B6F7-A069A014BF64}
 	EndGlobalSection
 EndGlobal

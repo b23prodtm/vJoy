@@ -21,3 +21,4 @@
 __pragma(warning(disable: 4127)) while(constant); __pragma(warning(default: 4127))
 
 // TODO: reference additional headers your program requires here
+#include <minwindef.h>
