@@ -67,6 +67,7 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vJoyInstall", "apps\vJoyInstall\CmdLine\vJoyInstall.vcxproj", "{9794FF85-60A8-4E93-8BD0-D99F7167E70A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E8EF423A-0C43-44E3-AF98-5400D82DA827} = {E8EF423A-0C43-44E3-AF98-5400D82DA827}
+		{A2977561-932D-48D1-BDFC-30346B745478} = {A2977561-932D-48D1-BDFC-30346B745478}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vJoy", "driver\sys\vJoy.vcxproj", "{B7F8EA5A-FD07-4922-ADD5-F547E84C9700}"
@@ -86,7 +87,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreateVersion", "CreateVers
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test-vXboxInterface", "apps\common\vJoyInterface\Test-vXboxInterface\Test-vXboxInterface.vcxproj", "{8B2B1B77-C83A-4160-9CC3-2FEEFE0C407A}"
 	ProjectSection(ProjectDependencies) = postProject
-		{9E1FC894-F587-4FBA-8599-2F8C544E061A} = {9E1FC894-F587-4FBA-8599-2F8C544E061A}
+		{A2977561-932D-48D1-BDFC-30346B745478} = {A2977561-932D-48D1-BDFC-30346B745478}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vXboxInterfaceCLR", "apps\common\vXboxInterfaceCppWrap\vXboxInterfaceCppWrap\vXboxInterfaceCppWrap.vcxproj", "{A2977561-932D-48D1-BDFC-30346B745478}"

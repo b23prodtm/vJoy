@@ -52,7 +52,4 @@
       <Filter>Fichiers de ressources</Filter>
     </Image>
   </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\..\..\..\x64\Debug-Xbox\vJoyInterface.dll" />
-  </ItemGroup>
 </Project>

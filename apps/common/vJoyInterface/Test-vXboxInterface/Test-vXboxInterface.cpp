@@ -20,7 +20,7 @@ extern "C"
 #include "..\vJoyInterface.h"
 #include "..\vXboxInterface.h"
 
-#ifndef XBOX
+#ifdef XBOX
 #pragma comment(lib, "vJoyInterface")
 int main()
 {
@@ -126,7 +126,6 @@ int main()
 	printf("Press any key to detect device feedback \n");
 	getchar();
 
-	WORD LeftMotor, RightMotor;
 	UCHAR Led;
 	BOOL Led_Ok, Vib_Ok;
 	XINPUT_VIBRATION Vib;
@@ -159,11 +158,11 @@ int main()
 	return 0;
 
 }
-#else // XBOX
+#else // !XBOX
 int main()
 {
 	printf("NOT Xbox mode\n");
 	return 0;
 }
 
-#endif // XBOX 
+#endif // !XBOX 

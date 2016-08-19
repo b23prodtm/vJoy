@@ -130,8 +130,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setupapi.lib;hid.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(WindowsSdkDir)lib\$(DDKSpec)\km\$(DDKPlatform);$(WindowsSdkLibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vjoyinterface.lib;setupapi.lib;hid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;$(WindowsSdkDir)lib\$(DDKSpec)\km\$(DDKPlatform);$(WindowsSdkLibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreLinkEvent>
       <Command>REM copy $(ProjectDir)..\..\..\..\vJoy\x64\Release-Xbox\*.dll $(TargetDir)\.</Command>
@@ -179,7 +179,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>vjoyinterface.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>$(OutDir)CreateVersion.exe $(ProjectDir)gen-versioninfo.h</Command>
@@ -223,12 +224,11 @@
     <Image Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\..\..\x64\Debug-Xbox\vJoyInterface.dll">
-      <DeploymentContent>true</DeploymentContent>
-      <FileType>Document</FileType>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug-Xbox|x64'">false</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release-Xbox|x64'">false</DeploymentContent>
-    </Library>
+    <ProjectReference Include="..\..\vJoyInterface\vJoyInterface2012.vcxproj">
+      <Project>{9e1fc894-f587-4fba-8599-2f8c544e061a}</Project>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
