@@ -89,7 +89,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test-vXboxInterface", "apps
 		{9E1FC894-F587-4FBA-8599-2F8C544E061A} = {9E1FC894-F587-4FBA-8599-2F8C544E061A}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vXboxInterfaceCppWrap", "apps\common\vXboxInterfaceCppWrap\vXboxInterfaceCppWrap\vXboxInterfaceCppWrap.vcxproj", "{A2977561-932D-48D1-BDFC-30346B745478}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vXboxInterfaceCLR", "apps\common\vXboxInterfaceCppWrap\vXboxInterfaceCppWrap\vXboxInterfaceCppWrap.vcxproj", "{A2977561-932D-48D1-BDFC-30346B745478}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9E1FC894-F587-4FBA-8599-2F8C544E061A} = {9E1FC894-F587-4FBA-8599-2F8C544E061A}
 	EndProjectSection
@@ -1535,8 +1535,8 @@ Global
 		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|ARM64.Build.0 = Release-Xbox|x64
 		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|Win32.ActiveCfg = Debug-Xbox|Win32
 		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|Win32.Build.0 = Debug-Xbox|Win32
-		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|x64.ActiveCfg = Release-Xbox|x64
-		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|x64.Build.0 = Release-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|x64.ActiveCfg = Debug-Xbox|x64
+		{A2977561-932D-48D1-BDFC-30346B745478}.Debug(Xbox)|x64.Build.0 = Debug-Xbox|x64
 		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|Any CPU.ActiveCfg = Release-Xbox|x64
 		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|Any CPU.Build.0 = Release-Xbox|x64
 		{A2977561-932D-48D1-BDFC-30346B745478}.Debug|ARM.ActiveCfg = Release-Xbox|x64

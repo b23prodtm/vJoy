@@ -10,7 +10,6 @@
 #define VJOYINTERFACE_API __declspec(dllimport)
 #endif
 
-
 ///////////////////////////// vJoy device (collection) status ////////////////////////////////////////////
 #ifndef VJDSTAT
 #define VJDSTAT
@@ -257,8 +256,8 @@ extern "C" {
 #pragma warning( push )
 #pragma warning( disable : 4995 )
 /////	General driver data
-SHORT  GetvJoyVersion(void);
-BOOL	 vJoyEnabled(void);
+VJOYINTERFACE_API SHORT __cdecl GetvJoyVersion(void);
+VJOYINTERFACE_API BOOL	__cdecl vJoyEnabled(void);
 VJOYINTERFACE_API PVOID	__cdecl	GetvJoyProductString(void);
 VJOYINTERFACE_API PVOID	__cdecl	GetvJoyManufacturerString(void);
 VJOYINTERFACE_API PVOID	__cdecl	GetvJoySerialNumberString(void);
@@ -270,12 +269,12 @@ VJOYINTERFACE_API BOOL	__cdecl	GetNumberExistingVJD(int * n);	// What is the num
 
 
 /////	vJoy Device properties
-int	  GetVJDButtonNumber(UINT rID);	// Get the number of buttons defined in the specified VDJ
-int	  GetVJDDiscPovNumber(UINT rID);	// Get the number of descrete-type POV hats defined in the specified VDJ
-int	  GetVJDContPovNumber(UINT rID);	// Get the number of descrete-type POV hats defined in the specified VDJ
-BOOL	  GetVJDAxisExist(UINT rID, UINT Axis); // Test if given axis defined in the specified VDJ
-BOOL	  GetVJDAxisMax(UINT rID, UINT Axis, LONG * Max); // Get logical Maximum value for a given axis defined in the specified VDJ
-BOOL	  GetVJDAxisMin(UINT rID, UINT Axis, LONG * Min); // Get logical Minimum value for a given axis defined in the specified VDJ
+VJOYINTERFACE_API int	__cdecl  GetVJDButtonNumber(UINT rID);	// Get the number of buttons defined in the specified VDJ
+VJOYINTERFACE_API int	__cdecl  GetVJDDiscPovNumber(UINT rID);	// Get the number of descrete-type POV hats defined in the specified VDJ
+VJOYINTERFACE_API int	__cdecl  GetVJDContPovNumber(UINT rID);	// Get the number of descrete-type POV hats defined in the specified VDJ
+VJOYINTERFACE_API BOOL	__cdecl  GetVJDAxisExist(UINT rID, UINT Axis); // Test if given axis defined in the specified VDJ
+VJOYINTERFACE_API BOOL	__cdecl  GetVJDAxisMax(UINT rID, UINT Axis, LONG * Max); // Get logical Maximum value for a given axis defined in the specified VDJ
+VJOYINTERFACE_API BOOL	__cdecl  GetVJDAxisMin(UINT rID, UINT Axis, LONG * Min); // Get logical Minimum value for a given axis defined in the specified VDJ
 VJOYINTERFACE_API enum VjdStat	__cdecl	GetVJDStatus(UINT rID);			// Get the status of the specified vJoy Device.
 // Added in 2.1.6
 VJOYINTERFACE_API BOOL	__cdecl	isVJDExists(UINT rID);					// TRUE if the specified vJoy Device exists
@@ -317,23 +316,23 @@ VJOYINTERFACE_API BOOL		__cdecl	IsDeviceFfbEffect(UINT rID, UINT Effect);
 
 //  Force Feedback (FFB) helper functions
 VJOYINTERFACE_API DWORD 	__cdecl	Ffb_h_DeviceID(const FFB_DATA * Packet, int *DeviceID);
-DWORD 	 Ffb_h_Type(const FFB_DATA * Packet, FFBPType *Type);
-DWORD 	 Ffb_h_Packet(const FFB_DATA * Packet, WORD *Type, int *DataSize, BYTE *Data[]);
-DWORD 	 Ffb_h_EBI(const FFB_DATA * Packet, int *Index);
-DWORD 	 Ffb_h_Eff_Report(const FFB_DATA * Packet, FFB_EFF_REPORT*  Effect);
+VJOYINTERFACE_API DWORD 	__cdecl Ffb_h_Type(const FFB_DATA * Packet, FFBPType *Type);
+VJOYINTERFACE_API DWORD 	__cdecl Ffb_h_Packet(const FFB_DATA * Packet, WORD *Type, int *DataSize, BYTE *Data[]);
+VJOYINTERFACE_API DWORD 	__cdecl Ffb_h_EBI(const FFB_DATA * Packet, int *Index);
+VJOYINTERFACE_API DWORD 	__cdecl Ffb_h_Eff_Report(const FFB_DATA * Packet, FFB_EFF_REPORT*  Effect);
 __declspec(deprecated("** Ffb_h_Eff_Const function was deprecated - Use function Ffb_h_Eff_Report **")) \
-DWORD 	 Ffb_h_Eff_Const(const FFB_DATA * Packet, FFB_EFF_CONST*  Effect);
-DWORD		 Ffb_h_Eff_Ramp(const FFB_DATA * Packet, FFB_EFF_RAMP*  RampEffect);
-DWORD 	 Ffb_h_EffOp(const FFB_DATA * Packet,  FFB_EFF_OP*  Operation);
-DWORD 	 Ffb_h_DevCtrl(const FFB_DATA * Packet,  FFB_CTRL *  Control);
-DWORD 	 Ffb_h_Eff_Period(const FFB_DATA * Packet,  FFB_EFF_PERIOD*  Effect);
-DWORD 	 Ffb_h_Eff_Cond(const FFB_DATA * Packet,  FFB_EFF_COND*  Condition);
-DWORD 	 Ffb_h_DevGain(const FFB_DATA * Packet,  BYTE * Gain);
-DWORD		 Ffb_h_Eff_Envlp(const FFB_DATA * Packet,  FFB_EFF_ENVLP*  Envelope);
-DWORD		 Ffb_h_EffNew(const FFB_DATA * Packet, FFBEType * Effect);
+VJOYINTERFACE_API DWORD 	__cdecl Ffb_h_Eff_Const(const FFB_DATA * Packet, FFB_EFF_CONST*  Effect);
+VJOYINTERFACE_API DWORD		__cdecl Ffb_h_Eff_Ramp(const FFB_DATA * Packet, FFB_EFF_RAMP*  RampEffect);
+VJOYINTERFACE_API DWORD 	__cdecl Ffb_h_EffOp(const FFB_DATA * Packet,  FFB_EFF_OP*  Operation);
+VJOYINTERFACE_API DWORD 	__cdecl Ffb_h_DevCtrl(const FFB_DATA * Packet,  FFB_CTRL *  Control);
+VJOYINTERFACE_API DWORD 	__cdecl Ffb_h_Eff_Period(const FFB_DATA * Packet,  FFB_EFF_PERIOD*  Effect);
+VJOYINTERFACE_API DWORD 	__cdecl Ffb_h_Eff_Cond(const FFB_DATA * Packet,  FFB_EFF_COND*  Condition);
+VJOYINTERFACE_API DWORD 	__cdecl Ffb_h_DevGain(const FFB_DATA * Packet,  BYTE * Gain);
+VJOYINTERFACE_API DWORD		__cdecl Ffb_h_Eff_Envlp(const FFB_DATA * Packet,  FFB_EFF_ENVLP*  Envelope);
+VJOYINTERFACE_API DWORD		__cdecl Ffb_h_EffNew(const FFB_DATA * Packet, FFBEType * Effect);
 
 // Added in 2.1.6
-DWORD		 Ffb_h_Eff_Constant(const FFB_DATA * Packet, FFB_EFF_CONSTANT *  ConstantEffect);
+VJOYINTERFACE_API DWORD		__cdecl Ffb_h_Eff_Constant(const FFB_DATA * Packet, FFB_EFF_CONSTANT *  ConstantEffect);
 #pragma endregion
 
 #pragma warning( pop )

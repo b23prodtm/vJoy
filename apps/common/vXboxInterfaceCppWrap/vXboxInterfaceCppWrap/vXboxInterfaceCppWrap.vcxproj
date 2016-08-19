@@ -201,7 +201,7 @@
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="vXboxInterfaceWrap.h" />
+    <ClInclude Include="IWrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -211,7 +211,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release-Xbox|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release-Xbox|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="vXboxInterfaceWrap.cpp" />
+    <ClCompile Include="IWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -224,7 +224,10 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\..\..\x64\Debug-Xbox\vJoyInterface.dll">
+      <DeploymentContent>true</DeploymentContent>
       <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug-Xbox|x64'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release-Xbox|x64'">false</DeploymentContent>
     </Library>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

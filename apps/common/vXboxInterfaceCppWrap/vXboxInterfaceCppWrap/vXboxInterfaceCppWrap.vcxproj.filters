@@ -24,7 +24,7 @@
     <ClInclude Include="Stdafx.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="vXboxInterfaceWrap.h">
+    <ClInclude Include="IWrapper.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClCompile Include="Stdafx.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="vXboxInterfaceWrap.cpp">
+    <ClCompile Include="IWrapper.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,6 +53,6 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\x64\Debug-Xbox\vJoyInterface.dll" />
+    <Library Include="..\..\..\..\x64\Debug-Xbox\vJoyInterface.dll" />
   </ItemGroup>
 </Project>
