@@ -138,7 +138,7 @@ bool vXbox::IWrapper::vJoyFfbCap(bool * Supported) {
 	return ::vJoyFfbCap(&s) == TRUE;
 }
 bool vXbox::IWrapper::GetvJoyMaxDevices(int * n) {
-	return ::GetvJoyMaxDevices(n) == TRUE;	
+	return ::GetvJoyMaxDevices(n) == TRUE;
 }
 bool vXbox::IWrapper::GetNumberExistingVJD(int * n) {
 	return ::GetNumberExistingVJD(n) == TRUE;
@@ -164,11 +164,12 @@ bool vXbox::IWrapper::GetVJDAxisMin(UINT rID, UINT Axis, LONG * Min) {
 	return ::GetVJDAxisMin(rID, Axis, Min) == TRUE;
 }
 int vXbox::IWrapper::GetVJDStatus(UINT rID) {
+	valarray <int> all = vXbox::IWrapper::getVjdStat();
 	// return value match with "CLR" enum
-	VjdStat ret = ::GetVJDStatus(rID);
-	for each (VjdStat stat in vXbox::Enums::All) {
-		if (stat == ret)
-			return stat;
+	vJoy::VjdStat ret = ::GetVJDStatus(rID);
+	for (int i = 0; i < all.size(); i++) {
+		if (all[i] == ret)
+			return all[i];
 	};
 	return VJD_STAT_UNKN;
 }

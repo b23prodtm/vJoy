@@ -14,6 +14,7 @@
 #pragma once
 #include <Xinput.h>
 #include "../../vjoyinterface/vjoyinterface.h"
+#include <valarray>
 
 using namespace std;
 namespace vXbox {
@@ -80,11 +81,6 @@ namespace vXbox {
 	//bool g_vDevice[MAX_NUMBER_XBOX_CTRLS] = { FALSE };
 	//HANDLE g_hBus = INVALID_HANDLE_VALUE;
 
-	using namespace vJoy; 
-	namespace Enums {
-		static const VjdStat All[] = { VJD_STAT_BUSY,VJD_STAT_FREE,VJD_STAT_MISS, VJD_STAT_OWN, VJD_STAT_UNKN };
-	}
-
 	public ref class IWrapper
 	{
 	public:
@@ -100,12 +96,15 @@ namespace vXbox {
 			hid_WHL = HID_USAGE_WHL,
 			hid_POV = HID_USAGE_POV;
 		// VjdStat
-		const int VJD_STAT_BUSY, VJD_STAT_FREE, VJD_STAT_MISS, VJD_STAT_OWN, VJD_STAT_UNKN;
-		IWrapper():VJD_STAT_BUSY(vJoy::VJD_STAT_BUSY),
-			VJD_STAT_FREE(vJoy::VJD_STAT_FREE),
-			VJD_STAT_MISS(vJoy::VJD_STAT_MISS), 
-			VJD_STAT_OWN(vJoy::VJD_STAT_OWN), 
-			VJD_STAT_UNKN(vJoy::VJD_STAT_UNKN) {}
+		static const int VJD_STAT_BUSY = vJoy::VJD_STAT_BUSY,
+			VJD_STAT_FREE = vJoy::VJD_STAT_FREE,
+			VJD_STAT_MISS = vJoy::VJD_STAT_MISS,
+			VJD_STAT_OWN = vJoy::VJD_STAT_OWN,
+			VJD_STAT_UNKN = vJoy::VJD_STAT_UNKN;
+		static valarray<int> getVjdStat() {
+			valarray <int> all = { VJD_STAT_BUSY,VJD_STAT_FREE,VJD_STAT_MISS, VJD_STAT_OWN, VJD_STAT_UNKN };
+			return all;
+		}
 		/// Status
 		bool isVBusExists();
 		bool GetNumEmptyBusSlots(UCHAR * nSlots);
