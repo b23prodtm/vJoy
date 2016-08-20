@@ -214,6 +214,22 @@ extern "C"
 		return SetDpad(UserIndex, 0);
 	}
 
+	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadUpRight(UINT UserIndex) {
+		return SetDpad(UserIndex, DPAD_UP | DPAD_RIGHT);
+	}
+
+	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadDownRight(UINT UserIndex) {
+		return SetDpad(UserIndex, DPAD_DOWN | DPAD_RIGHT);
+	}
+
+	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadDownLeft(UINT UserIndex) {
+		return SetDpad(UserIndex, DPAD_DOWN | DPAD_LEFT);
+	}
+
+	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadUpLeft(UINT UserIndex) {
+		return SetDpad(UserIndex, DPAD_UP | DPAD_LEFT);
+	}
+
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnA(UINT UserIndex, BOOL Press)
 	{
 		UINT Btn = XINPUT_GAMEPAD_A;
@@ -681,6 +697,18 @@ VJOYINTERFACE_API BOOL		__cdecl	SetDiscPov(int Value, UINT rID, UCHAR nPov)	// W
 	case 3:
 		SetDpadLeft(rID);
 		break;
+	case 4:
+		SetDpadUpRight(rID);
+		break;
+	case 5:
+		SetDpadDownRight(rID);
+		break;
+	case 6:
+		SetDpadDownRight(rID);
+		break;
+	case 7:
+		SetDpadUpLeft(rID);
+		break;
 	case 0xF:
 	case -1:
 		SetDpadOff(rID);
@@ -696,19 +724,16 @@ VJOYINTERFACE_API BOOL		__cdecl	SetContPov(DWORD Value, UINT rID, UCHAR nPov)	//
 {
 	if (nPov != 1)
 		return FALSE;
-
+	INT xinput = 0; //OFF
 	if (Value >= 31500 || Value < 4500)
-		return SetDpadUp(rID);
+		xinput |= DPAD_UP;
 	if (Value >= 4500 || Value < 13500)
-		return SetDpadRight(rID);
+		xinput |= DPAD_RIGHT;
 	if (Value >= 13500 || Value < 22500)
-		return SetDpadUp(rID);
+		xinput |= DPAD_DOWN;
 	if (Value >= 22500 || Value < 31500)
-		return SetDpadRight(rID);
-
-	return SetDpadOff(rID);
-
-
+		xinput |= DPAD_LEFT;
+	return SetDpad(rID, xinput);
 }
 
 #pragma endregion

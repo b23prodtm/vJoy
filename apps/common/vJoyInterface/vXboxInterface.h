@@ -102,6 +102,10 @@ extern "C"
 	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadRight(UINT UserIndex);
 	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadDown(UINT UserIndex);
 	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadLeft(UINT UserIndex);
+	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadUpRight(UINT UserIndex);
+	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadDownRight(UINT UserIndex);
+	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadDownLeft(UINT UserIndex);
+	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadUpLeft(UINT UserIndex);
 	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadOff(UINT UserIndex);
 
 	// Data Transfer (Feedback from the device)

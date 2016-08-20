@@ -7,225 +7,213 @@
 
 using namespace std;
 
-enum vJoy::VjdStat vXbox::IWrapper::GetVJDStatus(UINT rID) {
-	return ::GetVJDStatus(rID);
-}
-
 using namespace vXbox;
-BOOL IWrapper::isVBusExists(void)
-{
-	return ::isVBusExists();
+bool vXbox::IWrapper::isVBusExists(void) {
+	return ::isVBusExists() == TRUE;
+}
+bool vXbox::IWrapper::GetNumEmptyBusSlots(UCHAR * nSlots) {
+	return ::GetNumEmptyBusSlots(nSlots) == TRUE;
+}
+bool vXbox::IWrapper::isControllerExists(UINT UserIndex) {
+	return ::isControllerExists(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::isControllerOwned(UINT UserIndex) {
+	return ::isControllerOwned(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::PlugIn(UINT UserIndex) {
+	return ::PlugIn(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::UnPlug(UINT UserIndex) {
+	return ::UnPlug(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::UnPlugForce(UINT UserIndex) {
+	return ::UnPlugForce(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::SetAxisX(UINT UserIndex, SHORT Value) {
+	return ::SetAxisX(UserIndex, Value) == TRUE;
+}
+bool vXbox::IWrapper::SetAxisY(UINT UserIndex, SHORT Value) {
+	return ::SetAxisY(UserIndex, Value) == TRUE;
+}
+bool vXbox::IWrapper::SetAxisRx(UINT UserIndex, SHORT Value) {
+	return ::SetAxisRx(UserIndex, Value) == TRUE;
+}
+bool vXbox::IWrapper::SetAxisRy(UINT UserIndex, SHORT Value) {
+	return ::SetAxisRy(UserIndex, Value) == TRUE;
+}
+bool vXbox::IWrapper::SetDpadUp(UINT UserIndex) {
+	return ::SetDpadUp(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::SetDpadRight(UINT UserIndex) {
+	return ::SetDpadRight(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::SetDpadDown(UINT UserIndex) {
+	return ::SetDpadDown(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::SetDpadLeft(UINT UserIndex) {
+	return ::SetDpadLeft(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::SetDpadUpRight(UINT UserIndex) {
+	return ::SetDpadUpRight(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::SetDpadDownRight(UINT UserIndex) {
+	return ::SetDpadDownRight(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::SetDpadDownLeft(UINT UserIndex) {
+	return ::SetDpadDownLeft(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::SetDpadUpLeft(UINT UserIndex) {
+	return ::SetDpadUpLeft(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::SetDpadOff(UINT UserIndex) {
+	return ::SetDpadOff(UserIndex) == TRUE;
+}
+bool vXbox::IWrapper::SetBtnA(UINT UserIndex, bool Press) {
+	return ::SetBtnA(UserIndex, (Press ? TRUE : FALSE)) == TRUE;
+}
+bool vXbox::IWrapper::SetBtnB(UINT UserIndex, bool Press) {
+	return ::SetBtnB(UserIndex, (Press ? TRUE : FALSE)) == TRUE;
+}
+bool vXbox::IWrapper::SetBtnX(UINT UserIndex, bool Press) {
+	return ::SetBtnX(UserIndex, (Press ? TRUE : FALSE)) == TRUE;
+}
+bool vXbox::IWrapper::SetBtnY(UINT UserIndex, bool Press) {
+	return ::SetBtnY(UserIndex, (Press ? TRUE : FALSE)) == TRUE;
+}
+bool vXbox::IWrapper::SetBtnStart(UINT UserIndex, bool Press) {
+	return ::SetBtnStart(UserIndex, (Press ? TRUE : FALSE)) == TRUE;
+}
+bool vXbox::IWrapper::SetBtnBack(UINT UserIndex, bool Press) {
+	return ::SetBtnBack(UserIndex, (Press ? TRUE : FALSE)) == TRUE;
+}
+bool vXbox::IWrapper::SetBtnLT(UINT UserIndex, bool Press) {
+	return ::SetBtnLT(UserIndex, (Press ? TRUE : FALSE)) == TRUE;
+}
+bool vXbox::IWrapper::SetBtnRT(UINT UserIndex, bool Press) {
+	return ::SetBtnRT(UserIndex, (Press ? TRUE : FALSE)) == TRUE;
+}
+bool vXbox::IWrapper::SetBtnLB(UINT UserIndex, bool Press) {
+	return ::SetBtnLB(UserIndex, (Press ? TRUE : FALSE)) == TRUE;
+}
+bool vXbox::IWrapper::SetBtnRB(UINT UserIndex, bool Press) {
+	return ::SetBtnRB(UserIndex, (Press ? TRUE : FALSE)) == TRUE;
+}
+bool vXbox::IWrapper::SetTriggerL(UINT UserIndex, BYTE Value) {
+	return ::SetTriggerL(UserIndex, Value) == TRUE;
+}
+bool vXbox::IWrapper::SetTriggerR(UINT UserIndex, BYTE Value) {
+	return ::SetTriggerR(UserIndex, Value) == TRUE;
+}
+bool vXbox::IWrapper::GetLedNumber(UINT UserIndex, PBYTE pLed) {
+	return ::GetLedNumber(UserIndex, pLed) == TRUE;
 }
 
-BOOL IWrapper::GetNumEmptyBusSlots(UCHAR * nSlots)
-{
-	return ::GetNumEmptyBusSlots(nSlots);
-}
-
-BOOL IWrapper::isControllerExists(UINT UserIndex)
-{
-	return ::isControllerExists(UserIndex);
-}
-
-BOOL IWrapper::isControllerOwned(UINT UserIndex) {
-	return ::isControllerOwned(UserIndex);
-}
-
-BOOL IWrapper::PlugIn(UINT UserIndex) {
-	return ::PlugIn(UserIndex);
-}
-
-BOOL IWrapper::UnPlug(UINT UserIndex) {
-	return ::UnPlug(UserIndex);
-}
-
-BOOL IWrapper::UnPlugForce(UINT UserIndex) {
-	return ::UnPlugForce(UserIndex);
-}
-
-BOOL IWrapper::SetAxisX(UINT UserIndex, SHORT Value) {
-	return ::SetAxisX(UserIndex, Value);
-}
-
-BOOL IWrapper::SetAxisY(UINT UserIndex, SHORT Value) {
-	return ::SetAxisY(UserIndex, Value);
-}
-BOOL IWrapper::SetAxisRx(UINT UserIndex, SHORT Value) {
-	return ::SetAxisRx(UserIndex, Value);
-}
-
-BOOL IWrapper::SetAxisRy(UINT UserIndex, SHORT Value) {
-	return ::SetAxisRy(UserIndex, Value);
-}
-
-BOOL IWrapper::SetDpadUp(UINT UserIndex) {
-	return ::SetDpadUp(UserIndex);
-}
-
-BOOL IWrapper::SetDpadRight(UINT UserIndex) {
-	return ::SetDpadRight(UserIndex);
-}
-
-BOOL IWrapper::SetDpadDown(UINT UserIndex) {
-	return ::SetDpadDown(UserIndex);
-}
-
-BOOL IWrapper::SetDpadLeft(UINT UserIndex) {
-	return ::SetDpadLeft(UserIndex);
-}
-
-BOOL IWrapper::SetDpadOff(UINT UserIndex) {
-	return ::SetDpadOff(UserIndex);
-}
-
-BOOL IWrapper::SetBtnA(UINT UserIndex, BOOL Press) {
-	return ::SetBtnA(UserIndex,Press);
-}
-
-BOOL IWrapper::SetBtnB(UINT UserIndex, BOOL Press) {
-	return ::SetBtnB(UserIndex, Press);
-}
-
-BOOL IWrapper::SetBtnX(UINT UserIndex, BOOL Press) {
-	return ::SetBtnX(UserIndex, Press);
-}
-
-BOOL IWrapper::SetBtnY(UINT UserIndex, BOOL Press) {
-	return ::SetBtnY(UserIndex, Press);
-}
-
-BOOL IWrapper::SetBtnStart(UINT UserIndex, BOOL Press) {
-	return ::SetBtnStart(UserIndex, Press);
-}
-
-BOOL IWrapper::SetBtnBack(UINT UserIndex, BOOL Press) {
-	return ::SetBtnBack(UserIndex, Press);
-}
-
-BOOL IWrapper::SetBtnLT(UINT UserIndex, BOOL Press) {
-	return ::SetBtnLT(UserIndex, Press);
-}
-
-BOOL IWrapper::SetBtnRT(UINT UserIndex, BOOL Press) {
-	return ::SetBtnRT(UserIndex, Press);
-}
-
-BOOL IWrapper::SetBtnLB(UINT UserIndex, BOOL Press) {
-	return ::SetBtnLB(UserIndex, Press);
-}
-
-BOOL IWrapper::SetBtnRB(UINT UserIndex, BOOL Press) {
-	return ::SetBtnRB(UserIndex, Press);
-}
-
-BOOL IWrapper::SetTriggerL(UINT UserIndex, BYTE Value) {
-	return ::SetTriggerL(UserIndex, Value);
-}
-
-BOOL IWrapper::SetTriggerR(UINT UserIndex, BYTE Value) {
-	return ::SetTriggerR(UserIndex, Value);
-}
-
-BOOL IWrapper::GetLedNumber(UINT UserIndex, PBYTE pLed) {
-	return ::GetLedNumber(UserIndex, pLed);
-}
-
-BOOL IWrapper::GetVibration(UINT UserIndex, PXINPUT_VIBRATION pVib) {
-	return ::GetVibration(UserIndex,pVib);
+bool vXbox::IWrapper::GetVibration(UINT UserIndex, PXINPUT_VIBRATION pVib) {
+	return ::GetVibration(UserIndex, pVib) == TRUE;
 }
 
 
 #pragma region Legacy Interface Functions
 /////	General driver data
-SHORT IWrapper::GetvJoyVersion(void) {
+SHORT vXbox::IWrapper::GetvJoyVersion(void) {
 	return ::GetvJoyVersion();
 }
-BOOL IWrapper::vJoyEnabled(void) {
-	return ::vJoyEnabled();
+
+bool vXbox::IWrapper::vJoyEnabled(void) {
+	return ::vJoyEnabled() == TRUE;
 }
-PVOID IWrapper::GetvJoyProductString(void) {
+PVOID vXbox::IWrapper::GetvJoyProductString(void) {
 	return ::GetvJoyProductString();
 }
-PVOID IWrapper::GetvJoyManufacturerString(void) {
+PVOID vXbox::IWrapper::GetvJoyManufacturerString(void) {
 	return ::GetvJoyManufacturerString();
 }
-PVOID IWrapper::GetvJoySerialNumberString(void) {
+PVOID vXbox::IWrapper::GetvJoySerialNumberString(void) {
 	return ::GetvJoySerialNumberString();
 }
 //BOOL	 	DriverMatch(WORD * DllVer, WORD * DrvVer);
 //VOID	 	RegisterRemovalCB(RemovalCB cb, PVOID data);
-BOOL IWrapper::vJoyFfbCap(BOOL * Supported) {
-	return ::vJoyFfbCap(Supported);
+bool vXbox::IWrapper::vJoyFfbCap(bool * Supported) {
+	BOOL s = Supported ? TRUE : FALSE;
+	return ::vJoyFfbCap(&s) == TRUE;
 }
-BOOL IWrapper::GetvJoyMaxDevices(int * n) {
-	return ::GetvJoyMaxDevices(n);
+bool vXbox::IWrapper::GetvJoyMaxDevices(int * n) {
+	return ::GetvJoyMaxDevices(n) == TRUE;	
 }
-BOOL IWrapper::GetNumberExistingVJD(int * n) {
-	return ::GetNumberExistingVJD(n);
+bool vXbox::IWrapper::GetNumberExistingVJD(int * n) {
+	return ::GetNumberExistingVJD(n) == TRUE;
 }
 
 /////	vJoy Device properties
-int IWrapper::GetVJDButtonNumber(UINT rID) {
+int vXbox::IWrapper::GetVJDButtonNumber(UINT rID) {
 	return ::GetVJDButtonNumber(rID);
 }
-int IWrapper::GetVJDDiscPovNumber(UINT rID) {
+int vXbox::IWrapper::GetVJDDiscPovNumber(UINT rID) {
 	return ::GetVJDDiscPovNumber(rID);
 }
-int IWrapper::GetVJDContPovNumber(UINT rID) {
+int vXbox::IWrapper::GetVJDContPovNumber(UINT rID) {
 	return ::GetVJDContPovNumber(rID);
 }
-BOOL IWrapper::GetVJDAxisExist(UINT rID, UINT Axis) {
-	return ::GetVJDAxisExist(rID, Axis);
+bool vXbox::IWrapper::GetVJDAxisExist(UINT rID, UINT Axis) {
+	return ::GetVJDAxisExist(rID, Axis) == TRUE;
 }
-BOOL IWrapper::GetVJDAxisMax(UINT rID, UINT Axis, LONG * Max) {
-	return ::GetVJDAxisMax(rID, Axis, Max);
+bool vXbox::IWrapper::GetVJDAxisMax(UINT rID, UINT Axis, LONG * Max) {
+	return ::GetVJDAxisMax(rID, Axis, Max) == TRUE;
 }
-BOOL IWrapper::GetVJDAxisMin(UINT rID, UINT Axis, LONG * Min) {
-	return ::GetVJDAxisMin(rID, Axis, Min);
+bool vXbox::IWrapper::GetVJDAxisMin(UINT rID, UINT Axis, LONG * Min) {
+	return ::GetVJDAxisMin(rID, Axis, Min) == TRUE;
 }
-BOOL IWrapper::isVJDExists(UINT rID) {
-	return ::isVJDExists(rID);
+int vXbox::IWrapper::GetVJDStatus(UINT rID) {
+	// return value match with "CLR" enum
+	VjdStat ret = ::GetVJDStatus(rID);
+	for each (VjdStat stat in vXbox::Enums::All) {
+		if (stat == ret)
+			return stat;
+	};
+	return VJD_STAT_UNKN;
+}
+
+bool vXbox::IWrapper::isVJDExists(UINT rID) {
+	return ::isVJDExists(rID) == TRUE;
 }
 
 /////	Write access to vJoy Device - Basic
-
-BOOL IWrapper::AcquireVJD(UINT rID) {
-	return ::AcquireVJD(rID);
+bool vXbox::IWrapper::AcquireVJD(UINT rID) {
+	return ::AcquireVJD(rID) == TRUE;
 }
 
-VOID IWrapper::RelinquishVJD(UINT rID) {
-	return ::RelinquishVJD(rID);
+VOID  vXbox::IWrapper::RelinquishVJD(UINT rID) {
+	::RelinquishVJD(rID);
 }
-
 
 //// Reset functions
-BOOL IWrapper::ResetVJD(UINT rID) {
-	return ::ResetVJD(rID);
+bool vXbox::IWrapper::ResetVJD(UINT rID) {
+	return ::ResetVJD(rID) == TRUE;
 }
-VOID IWrapper::ResetAll(void) {
-	return ::ResetAll();
+VOID vXbox::IWrapper::ResetAll(void) {
+	::ResetAll();
 }
-BOOL IWrapper::ResetButtons(UINT rID) {
-	return ::ResetButtons(rID);
+bool vXbox::IWrapper::ResetButtons(UINT rID) {
+	return ::ResetButtons(rID) == TRUE;
 }
-BOOL IWrapper::ResetPovs(UINT rID) {
-	return ::ResetPovs(rID);
+bool vXbox::IWrapper::ResetPovs(UINT rID) {
+	return ::ResetPovs(rID) == TRUE;
 }
 
 // Write data
-BOOL IWrapper::UpdateVJD(UINT rID, PVOID pData) {
-	return ::UpdateVJD(rID, pData);
+bool vXbox::IWrapper::UpdateVJD(UINT rID, PVOID pData) {
+	return ::UpdateVJD(rID, pData) == TRUE;
 }
-BOOL IWrapper::SetAxis(LONG Value, UINT rID, UINT Axis) {
-	return ::SetAxis(Value, rID, Axis);
+bool vXbox::IWrapper::SetAxis(LONG Value, UINT rID, UINT Axis) {
+	return ::SetAxis(Value, rID, Axis) == TRUE;
 }
-BOOL IWrapper::SetBtn(BOOL Value, UINT rID, UCHAR nBtn) {
-	return ::SetBtn(Value, rID, nBtn);
+bool vXbox::IWrapper::SetBtn(bool Value, UINT rID, UCHAR nBtn) {
+	return ::SetBtn((Value ? TRUE : FALSE), rID, nBtn) == TRUE;
 }
-BOOL IWrapper::SetDiscPov(int Value, UINT rID, UCHAR nPov) {
-	return ::SetDiscPov(Value, rID, nPov);
+bool vXbox::IWrapper::SetDiscPov(int Value, UINT rID, UCHAR nPov) {
+	return ::SetDiscPov(Value, rID, nPov) == TRUE;
 }
-BOOL IWrapper::SetContPov(DWORD Value, UINT rID, UCHAR nPov) {
-	return ::SetContPov(Value, rID, nPov);
+bool vXbox::IWrapper::SetContPov(DWORD Value, UINT rID, UCHAR nPov) {
+	return ::SetContPov(Value, rID, nPov) == TRUE;
 }
 #pragma endregion
