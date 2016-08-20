@@ -3,10 +3,15 @@
 
 #include "IWrapper.h"
 
-#include  "../../vjoyinterface/vjoyinterface.h"
 #include  "../../vjoyinterface/vXboxInterface.h"
 
 using namespace std;
+
+enum vJoy::VjdStat vXbox::IWrapper::GetVJDStatus(UINT rID) {
+	return ::GetVJDStatus(rID);
+}
+
+using namespace vXbox;
 BOOL IWrapper::isVBusExists(void)
 {
 	return ::isVBusExists();
@@ -177,9 +182,6 @@ BOOL IWrapper::GetVJDAxisMax(UINT rID, UINT Axis, LONG * Max) {
 }
 BOOL IWrapper::GetVJDAxisMin(UINT rID, UINT Axis, LONG * Min) {
 	return ::GetVJDAxisMin(rID, Axis, Min);
-}
-enum VjdStat IWrapper::GetVJDStatus(UINT rID) {
-	return ::GetVJDStatus(rID);
 }
 BOOL IWrapper::isVJDExists(UINT rID) {
 	return ::isVJDExists(rID);

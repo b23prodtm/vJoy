@@ -4,7 +4,6 @@
 #include <assert.h>
 #include <crtdbg.h>
 #include <iostream>
-using namespace std;
 
 extern "C"
 {
@@ -17,6 +16,8 @@ extern "C"
 #include "vJoyInterface.h"
 #include "vXboxInterface.h"
 
+using namespace std;
+using namespace vJoy;
 
 extern "C"
 {
@@ -441,7 +442,7 @@ VJOYINTERFACE_API BOOL	__cdecl  GetVJDAxisMin(UINT rID, UINT Axis, LONG * Min) /
 	*Min = AXIS_MIN;
 	return TRUE;
 }
-VJOYINTERFACE_API enum VjdStat	__cdecl	GetVJDStatus(UINT rID)			// Get the status of the specified vJoy Device.
+VJOYINTERFACE_API enum vJoy::VjdStat	__cdecl	GetVJDStatus(UINT rID)			// Get the status of the specified vJoy Device.
 {
 	if (!isControllerExists(rID))
 		return VJD_STAT_MISS;

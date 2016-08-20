@@ -152,7 +152,7 @@
     <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin\</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>.;$(SolutionDir)..\..\..\inc;$(IncludePath);$(VC_IncludePath)</IncludePath>
+    <IncludePath>.;$(SolutionDir)\inc;$(IncludePath);$(VC_IncludePath)</IncludePath>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
@@ -166,7 +166,7 @@
     <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin\</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.;$(SolutionDir)..\..\..\inc;$(IncludePath);$(VC_IncludePath)</IncludePath>
+    <IncludePath>.;$(SolutionDir)\inc;$(IncludePath);$(VC_IncludePath)</IncludePath>
     <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
@@ -185,6 +185,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAsManaged>true</CompileAsManaged>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setupapi.lib;hid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -212,6 +213,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;%(PreprocessorDefinitions);XBOX</PreprocessorDefinitions>
       <CompileAsManaged>true</CompileAsManaged>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setupapi.lib;hid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -239,6 +241,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <CompileAsManaged>true</CompileAsManaged>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setupapi.lib;hid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -261,6 +264,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;%(PreprocessorDefinitions);XBOX</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <CompileAsManaged>true</CompileAsManaged>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setupapi.lib;hid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -290,6 +294,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAsManaged>true</CompileAsManaged>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions);X64;_DEBUG</PreprocessorDefinitions>
@@ -315,6 +320,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions);XBOX</PreprocessorDefinitions>
       <CompileAsManaged>true</CompileAsManaged>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions);X64;_DEBUG;XBOX</PreprocessorDefinitions>
@@ -339,6 +345,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <CompileAsManaged>true</CompileAsManaged>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <PreBuildEvent>
       <Command>$(OutDir)CreateVersion.exe $(ProjectDir)gen-versioninfo.h</Command>
@@ -363,6 +370,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions);XBOX</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <CompileAsManaged>true</CompileAsManaged>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <PreBuildEvent>
       <Command>$(OutDir)CreateVersion.exe $(ProjectDir)gen-versioninfo.h</Command>

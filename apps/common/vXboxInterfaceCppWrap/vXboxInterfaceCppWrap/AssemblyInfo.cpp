@@ -12,12 +12,12 @@ using namespace System::Security::Permissions;
 // associées à un assembly.
 //
 [assembly:AssemblyTitleAttribute(L"vXboxInterface")];
-[assembly:AssemblyDescriptionAttribute(L"")];
+[assembly:AssemblyDescriptionAttribute(L"XBox Controller interface for vJoy driver")];
 [assembly:AssemblyConfigurationAttribute(L"")];
-[assembly:AssemblyCompanyAttribute(L"")];
+[assembly:AssemblyCompanyAttribute(L"Github.com")];
 [assembly:AssemblyProductAttribute(L"vXboxInterface")];
 [assembly:AssemblyCopyrightAttribute(L"Copyright (c)  2016")];
-[assembly:AssemblyTrademarkAttribute(L"")];
+[assembly:AssemblyTrademarkAttribute(L"B23PRODTM")];
 [assembly:AssemblyCultureAttribute(L"")];
 
 //
