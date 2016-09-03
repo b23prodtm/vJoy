@@ -185,7 +185,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAsManaged>true</CompileAsManaged>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setupapi.lib;hid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -213,7 +213,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;%(PreprocessorDefinitions);XBOX</PreprocessorDefinitions>
       <CompileAsManaged>true</CompileAsManaged>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setupapi.lib;hid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -241,7 +241,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <CompileAsManaged>true</CompileAsManaged>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setupapi.lib;hid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -264,7 +264,7 @@
       <PreprocessorDefinitions>VJOYINTERFACE_EXPORTS;%(PreprocessorDefinitions);XBOX</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <CompileAsManaged>true</CompileAsManaged>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setupapi.lib;hid.lib;%(AdditionalDependencies)</AdditionalDependencies>

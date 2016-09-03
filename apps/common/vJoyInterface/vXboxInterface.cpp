@@ -168,33 +168,18 @@ extern "C"
 		return UnPlug_Opt(UserIndex, TRUE);
 	}
 
-	VJOYINTERFACE_API BOOL	__cdecl	 SetAxisX(UINT UserIndex, SHORT Value) // Left Stick X
+	VJOYINTERFACE_API BOOL	__cdecl	SetDpad(UINT UserIndex, INT Value)
 	{
-		g_Gamepad[UserIndex - 1].sThumbLX = Value;
+		g_Gamepad[UserIndex - 1].wButtons &= 0xFFF0;
+		g_Gamepad[UserIndex - 1].wButtons |= Value;
 		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
 	}
 
-	VJOYINTERFACE_API BOOL	__cdecl	 SetAxisY(UINT UserIndex, SHORT Value) // Left Stick X
-	{
-		g_Gamepad[UserIndex - 1].sThumbLY = Value;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
-	}
-
-	VJOYINTERFACE_API BOOL	__cdecl	 SetAxisRx(UINT UserIndex, SHORT Value) // Left Stick X
-	{
-		g_Gamepad[UserIndex - 1].sThumbRX = Value;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
-	}
-
-	VJOYINTERFACE_API BOOL	__cdecl	 SetAxisRy(UINT UserIndex, SHORT Value) // Left Stick X
-	{
-		g_Gamepad[UserIndex - 1].sThumbRY = Value;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
-	}
 	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadUp(UINT UserIndex)
 	{
 		return SetDpad(UserIndex, DPAD_UP);
 	}
+
 	VJOYINTERFACE_API BOOL	__cdecl	 SetDpadRight(UINT UserIndex)
 	{
 		return SetDpad(UserIndex, DPAD_RIGHT);
@@ -230,95 +215,69 @@ extern "C"
 		return SetDpad(UserIndex, DPAD_UP | DPAD_LEFT);
 	}
 
+	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnAny(UINT UserIndex, BOOL Press, UINT xBtn)
+	{
+		g_Gamepad[UserIndex - 1].wButtons &= ~xBtn;
+		g_Gamepad[UserIndex - 1].wButtons |= xBtn*Press;
+		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+	}
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnA(UINT UserIndex, BOOL Press)
 	{
-		UINT Btn = XINPUT_GAMEPAD_A;
-		g_Gamepad[UserIndex - 1].wButtons &= ~Btn;
-		g_Gamepad[UserIndex - 1].wButtons |= Btn*Press;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetBtnAny(UserIndex, Press, (UINT)XINPUT_GAMEPAD_A);
 	}
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnB(UINT UserIndex, BOOL Press)
 	{
-		UINT Btn = XINPUT_GAMEPAD_B;
-		g_Gamepad[UserIndex - 1].wButtons &= ~Btn;
-		g_Gamepad[UserIndex - 1].wButtons |= Btn*Press;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetBtnAny(UserIndex, Press, (UINT)XINPUT_GAMEPAD_B);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnX(UINT UserIndex, BOOL Press)
 	{
-		UINT Btn = XINPUT_GAMEPAD_X;
-		g_Gamepad[UserIndex - 1].wButtons &= ~Btn;
-		g_Gamepad[UserIndex - 1].wButtons |= Btn*Press;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetBtnAny(UserIndex, Press, (UINT)XINPUT_GAMEPAD_X);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnY(UINT UserIndex, BOOL Press)
 	{
-		UINT Btn = XINPUT_GAMEPAD_Y;
-		g_Gamepad[UserIndex - 1].wButtons &= ~Btn;
-		g_Gamepad[UserIndex - 1].wButtons |= Btn*Press;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetBtnAny(UserIndex, Press, (UINT)XINPUT_GAMEPAD_Y);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnStart(UINT UserIndex, BOOL Press)
 	{
-		UINT Btn = XINPUT_GAMEPAD_START;
-		g_Gamepad[UserIndex - 1].wButtons &= ~Btn;
-		g_Gamepad[UserIndex - 1].wButtons |= Btn*Press;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetBtnAny(UserIndex, Press, (UINT)XINPUT_GAMEPAD_START);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnBack(UINT UserIndex, BOOL Press)
 	{
-		UINT Btn = XINPUT_GAMEPAD_BACK;
-		g_Gamepad[UserIndex - 1].wButtons &= ~Btn;
-		g_Gamepad[UserIndex - 1].wButtons |= Btn*Press;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetBtnAny(UserIndex, Press, (UINT)XINPUT_GAMEPAD_BACK);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnLT(UINT UserIndex, BOOL Press)
 	{
-		UINT Btn = XINPUT_GAMEPAD_LEFT_THUMB;
-		g_Gamepad[UserIndex - 1].wButtons &= ~Btn;
-		g_Gamepad[UserIndex - 1].wButtons |= Btn*Press;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetBtnAny(UserIndex, Press, (UINT)XINPUT_GAMEPAD_LEFT_THUMB);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnRT(UINT UserIndex, BOOL Press)
 	{
-		UINT Btn = XINPUT_GAMEPAD_RIGHT_THUMB;
-		g_Gamepad[UserIndex - 1].wButtons &= ~Btn;
-		g_Gamepad[UserIndex - 1].wButtons |= Btn*Press;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetBtnAny(UserIndex, Press, (UINT)XINPUT_GAMEPAD_RIGHT_THUMB);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnLB(UINT UserIndex, BOOL Press)
 	{
-		UINT Btn = XINPUT_GAMEPAD_LEFT_SHOULDER;
-		g_Gamepad[UserIndex - 1].wButtons &= ~Btn;
-		g_Gamepad[UserIndex - 1].wButtons |= Btn*Press;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetBtnAny(UserIndex, Press, (UINT)XINPUT_GAMEPAD_LEFT_SHOULDER);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 SetBtnRB(UINT UserIndex, BOOL Press)
 	{
-		UINT Btn = XINPUT_GAMEPAD_RIGHT_SHOULDER;
-		g_Gamepad[UserIndex - 1].wButtons &= ~Btn;
-		g_Gamepad[UserIndex - 1].wButtons |= Btn*Press;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetBtnAny(UserIndex, Press, (UINT)XINPUT_GAMEPAD_RIGHT_SHOULDER);
 	}
 
-	VJOYINTERFACE_API BOOL	__cdecl	 SetTriggerL(UINT UserIndex, BYTE Value) // Left Trigger
+	VJOYINTERFACE_API BOOL	__cdecl	 SetTriggerL(UINT UserIndex, BYTE Value, UINT Threshold = XINPUT_GAMEPAD_TRIGGER_THRESHOLD) // Left Trigger
 	{
-		g_Gamepad[UserIndex - 1].bLeftTrigger = Value;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetAxisXY(UserIndex, Value, 0, HID_USAGE_SL0, 0, Threshold);
 	}
 
-	VJOYINTERFACE_API BOOL	__cdecl	 SetTriggerR(UINT UserIndex, BYTE Value) // Right Trigger
+	VJOYINTERFACE_API BOOL	__cdecl	 SetTriggerR(UINT UserIndex, BYTE Value, UINT Threshold = XINPUT_GAMEPAD_TRIGGER_THRESHOLD) // Right Trigger
 	{
-		g_Gamepad[UserIndex - 1].bRightTrigger = Value;
-		return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
+		return SetAxisXY(UserIndex, Value, 0, HID_USAGE_SL1, 0, Threshold);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 GetLedNumber(UINT UserIndex, PBYTE pLed)
@@ -419,6 +378,8 @@ VJOYINTERFACE_API BOOL	__cdecl  GetVJDAxisExist(UINT rID, UINT Axis) // Test if 
 	case HID_USAGE_Y:
 	case HID_USAGE_RX:
 	case HID_USAGE_RY:
+	case HID_USAGE_SL0:
+	case HID_USAGE_SL1:
 		return TRUE;
 		break;
 	default:
@@ -433,12 +394,16 @@ VJOYINTERFACE_API BOOL	__cdecl  GetVJDAxisMax(UINT rID, UINT Axis, LONG * Max) /
 	case HID_USAGE_Y:
 	case HID_USAGE_RX:
 	case HID_USAGE_RY:
+		*Max = AXIS_MAX;
+		break;
+	case HID_USAGE_SL0:
+	case HID_USAGE_SL1:
+		*Max = AXIS_SL_MAX;
 		break;
 	default:
 		return FALSE;
 	};
 
-	*Max = AXIS_MAX;
 	return TRUE;
 
 }
@@ -446,16 +411,21 @@ VJOYINTERFACE_API BOOL	__cdecl  GetVJDAxisMin(UINT rID, UINT Axis, LONG * Min) /
 {
 	switch (Axis)
 	{
+
 	case HID_USAGE_X:
 	case HID_USAGE_Y:
 	case HID_USAGE_RX:
 	case HID_USAGE_RY:
+		*Min = AXIS_MIN;
+		break;
+	case HID_USAGE_SL0:
+	case HID_USAGE_SL1:
+		*Min = AXIS_SL_MIN;
 		break;
 	default:
 		return FALSE;
 	};
 
-	*Min = AXIS_MIN;
 	return TRUE;
 }
 VJOYINTERFACE_API enum vJoy::VjdStat	__cdecl	GetVJDStatus(UINT rID)			// Get the status of the specified vJoy Device.
@@ -554,12 +524,12 @@ VJOYINTERFACE_API BOOL		__cdecl	UpdateVJD(UINT rID, PVOID pData)	// Update the p
 
 
 	/////  Axes
-	Gamepad.sThumbLX = 2 * (pJoyPos->wAxisX - 1) - 32767;
-	Gamepad.sThumbLY = 2 * (pJoyPos->wAxisY - 1) - 32767;
-	Gamepad.sThumbRX = 2 * (pJoyPos->wAxisXRot - 1) - 32767;
-	Gamepad.sThumbRY = 2 * (pJoyPos->wAxisYRot - 1) - 32767;
-	Gamepad.bLeftTrigger = (pJoyPos->wAxisZRot - 1) / 128;
-	Gamepad.bRightTrigger = (pJoyPos->wAxisZ - 1) / 128;
+	Gamepad.sThumbLX = 2 * (pJoyPos->wAxisX - 1) - AXIS_MAX;
+	Gamepad.sThumbLY = 2 * (pJoyPos->wAxisY - 1) - AXIS_MAX;
+	Gamepad.sThumbRX = 2 * (pJoyPos->wAxisXRot - 1) - AXIS_MAX;
+	Gamepad.sThumbRY = 2 * (pJoyPos->wAxisYRot - 1) - AXIS_MAX;
+	Gamepad.bLeftTrigger = (pJoyPos->wAxisZRot - 1) / AXIS_SL_MAX;
+	Gamepad.bRightTrigger = (pJoyPos->wAxisZ - 1) / AXIS_SL_MAX;
 
 	//// Buttons
 	// Button 1 ==> Button A
@@ -606,37 +576,120 @@ VJOYINTERFACE_API BOOL		__cdecl	UpdateVJD(UINT rID, PVOID pData)	// Update the p
 	// Send joystick position structure to vJoy device
 	return  XOutputSetState(rID, &Gamepad);
 }
+
+/**
+Axis DeadZones and Trigger Thresholds function (Xinput recommends)
+https://msdn.microsoft.com/en-us/library/windows/desktop/ee417001(v=vs.85).aspx
+*/
+VJOYINTERFACE_API BOOL __cdecl	SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT ValueY, UINT AxisX = HID_USAGE_X, UINT AxisY = HID_USAGE_Y, UINT DeadZone = XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE)
+{
+
+	float LX = ValueX;
+	float LY = ValueY;
+
+	//determine how far the controller is pushed
+	float magnitude = sqrt(LX*LX + LY*LY);
+	float normalizedMagnitude = 0;
+
+	//check if the controller is outside a circular dead zone
+	if (magnitude > DeadZone)
+	{
+		//clip the magnitude at its expected maximum value
+		if (magnitude > AXIS_MAX) magnitude = AXIS_MAX;
+
+		//adjust magnitude relative to the end of the dead zone
+		magnitude -= DeadZone;
+
+		//optionally normalize the magnitude with respect to its expected range
+		//giving a magnitude value of 0.0 to 1.0
+		normalizedMagnitude = magnitude / (AXIS_MAX - DeadZone);
+
+		//determine the direction the controller is pushed
+		//ValueX = (SHORT)roundf(LX / magnitude);
+		//ValueY = (SHORT)roundf(LY / magnitude);
+	}
+	else //if the controller is in the deadzone zero out the magnitude
+	{
+		magnitude = 0.0;
+		normalizedMagnitude = 0.0;
+	}
+	BOOL r = TRUE;
+	if (AxisX != 0)
+		r = r && SetAxis(ValueX*normalizedMagnitude, UserIndex, AxisX);
+	if (AxisY != 0)
+		r = r && SetAxis(ValueY*normalizedMagnitude, UserIndex, AxisY);
+	return r;
+}
+
+VJOYINTERFACE_API BOOL __cdecl GetTriggerLR(UINT UserIndex, PBYTE ValueL, PBYTE ValueR, UINT AxisL, UINT AxisR) {
+	if (XOutputSetGetState(UserIndex, &g_Gamepad[UserIndex - 1], nullptr, nullptr, nullptr, nullptr))
+	{
+		XINPUT_GAMEPAD *pad = &g_Gamepad[UserIndex - 1];
+		if (AxisL == HID_USAGE_SL0)
+			*ValueL = (*pad).bLeftTrigger;
+		if (AxisR == HID_USAGE_SL1)
+			*ValueR = (*pad).bRightTrigger;
+		return true;
+	}
+	return false;
+}
+VJOYINTERFACE_API BOOL __cdecl GetAxisXY(UINT UserIndex, PSHORT ValueX, PSHORT ValueY, UINT AxisX, UINT AxisY) {
+	if (XOutputSetGetState(UserIndex, &g_Gamepad[UserIndex - 1], nullptr, nullptr, nullptr, nullptr))
+	{
+		XINPUT_GAMEPAD *pad = &g_Gamepad[UserIndex - 1];
+		if (AxisX == HID_USAGE_X)
+			*ValueX = (*pad).sThumbLX;
+		if (AxisY == HID_USAGE_Y)
+			*ValueY = (*pad).sThumbLY;
+
+		if (AxisX == HID_USAGE_RX)
+			*ValueX = (*pad).sThumbRX;
+		if (AxisY == HID_USAGE_RY)
+			*ValueY = (*pad).sThumbRY;
+		return true;
+	}
+	return false;
+}
+/**
+This external function doesn't manage DEADZONES. Xinput recommend using the function SetAxisXY().
+*/
 VJOYINTERFACE_API BOOL		__cdecl	SetAxis(LONG Value, UINT rID, UINT Axis)		// Write Value to a given axis defined in the specified VDJ 
 {
-	LONG NormVal = 2 * (Value - 1) - 32767;
-	BYTE TrigVal = (Value - 1) / 128;
+	/** Clip as Xinput values */
+	SHORT NormVal = max(AXIS_MIN, min(AXIS_MAX, Value));
+	UINT TrigVal = max(AXIS_SL_MIN, min(AXIS_SL_MAX, Value));
 
 	switch (Axis)
 	{
 	case HID_USAGE_X:
-		SetAxisX(rID, NormVal);
+		g_Gamepad[rID - 1].sThumbLX = NormVal;
 		break;
 	case HID_USAGE_Y:
-		SetAxisY(rID, NormVal);
+		g_Gamepad[rID - 1].sThumbLY = NormVal;
 		break;
 	case HID_USAGE_RX:
-		SetAxisRx(rID, NormVal);
+		g_Gamepad[rID - 1].sThumbRX = NormVal;
 		break;
 	case HID_USAGE_RY:
-		SetAxisRy(rID, NormVal);
+		g_Gamepad[rID - 1].sThumbRY = NormVal;
 		break;
-	case HID_USAGE_Z:
-		SetTriggerR(rID, TrigVal);
+	case HID_USAGE_SL0:
+		g_Gamepad[rID - 1].bLeftTrigger = TrigVal;
 		break;
-	case HID_USAGE_RZ:
-		SetTriggerL(rID, TrigVal);
+	case HID_USAGE_SL1:
+		g_Gamepad[rID - 1].bRightTrigger = TrigVal;
 		break;
 	default:
 		return FALSE;
 	}
+	return XOutputSetState(rID, &g_Gamepad[rID - 1]);
 
-	return TRUE;
 }
+
+/**
+Converts UCHAR and finds the appropriate button press method. This is for configuration.
+See SetBtn(BOOL,UINT,UINT), a direct function to XINPUT.
+**/
 VJOYINTERFACE_API BOOL		__cdecl	SetBtn(BOOL Value, UINT rID, UCHAR nBtn)		// Write Value to a given button defined in the specified VDJ 
 {
 	switch (nBtn)
@@ -678,6 +731,9 @@ VJOYINTERFACE_API BOOL		__cdecl	SetBtn(BOOL Value, UINT rID, UCHAR nBtn)		// Wri
 
 	return TRUE;
 }
+/**
+Converts UCHAR and finds the appropriate button press method. This is for configuration.
+*/
 VJOYINTERFACE_API BOOL		__cdecl	SetDiscPov(int Value, UINT rID, UCHAR nPov)	// Write Value to a given descrete POV defined in the specified VDJ 
 {
 	if (nPov != 1)
@@ -720,6 +776,8 @@ VJOYINTERFACE_API BOOL		__cdecl	SetDiscPov(int Value, UINT rID, UCHAR nPov)	// W
 
 	return TRUE;
 }
+
+/** TODO: handle bi-directional press (Up-Right, Down-Left, etc.) */
 VJOYINTERFACE_API BOOL		__cdecl	SetContPov(DWORD Value, UINT rID, UCHAR nPov)	// Write Value to a given continuous POV defined in the specified VDJ 
 {
 	if (nPov != 1)
@@ -727,11 +785,11 @@ VJOYINTERFACE_API BOOL		__cdecl	SetContPov(DWORD Value, UINT rID, UCHAR nPov)	//
 	INT xinput = 0; //OFF
 	if (Value >= 31500 || Value < 4500)
 		xinput |= DPAD_UP;
-	if (Value >= 4500 || Value < 13500)
+	if (Value >= 4500 && Value < 13500)
 		xinput |= DPAD_RIGHT;
-	if (Value >= 13500 || Value < 22500)
+	if (Value >= 13500 && Value < 22500)
 		xinput |= DPAD_DOWN;
-	if (Value >= 22500 || Value < 31500)
+	if (Value >= 22500 && Value < 31500)
 		xinput |= DPAD_LEFT;
 	return SetDpad(rID, xinput);
 }
@@ -965,13 +1023,6 @@ WORD ConvertButton(LONG vBtns, WORD xBtns, UINT vBtn, UINT xBtn)
 	WORD out;
 	out = ((vBtns&(1 << (vBtn - 1))) == 0) ? xBtns & ~xBtn : xBtns | xBtn;
 	return out;
-}
-
-BOOL SetDpad(UINT UserIndex, INT Value)
-{
-	g_Gamepad[UserIndex - 1].wButtons &= 0xFFF0;
-	g_Gamepad[UserIndex - 1].wButtons |= Value;
-	return XOutputSetState(UserIndex, &g_Gamepad[UserIndex - 1]);
 }
 
 BOOL UnPlug_Opt(UINT UserIndex, BOOL Force)

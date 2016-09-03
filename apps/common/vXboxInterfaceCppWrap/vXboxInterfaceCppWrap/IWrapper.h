@@ -40,11 +40,6 @@ namespace vXbox {
 	//#define FEEDBACK_BUFFER_LENGTH 9
 	//#define MAX_NUMBER_XBOX_CTRLS 4
 	//
-	//#define DPAD_UP XINPUT_GAMEPAD_DPAD_UP
-	//#define DPAD_DOWN XINPUT_GAMEPAD_DPAD_DOWN
-	//#define DPAD_LEFT XINPUT_GAMEPAD_DPAD_LEFT
-	//#define DPAD_RIGHT XINPUT_GAMEPAD_DPAD_RIGHT
-	//#define DPAD_OFF 0
 	//
 	//#define AXIS_MAX	32767
 	//#define AXIS_MIN	-32768
@@ -85,7 +80,7 @@ namespace vXbox {
 	{
 	public:
 		// HID8USAGE enum
-		const unsigned int hid_X = HID_USAGE_X,
+		static const unsigned int hid_X = HID_USAGE_X,
 			hid_Y = HID_USAGE_Y,
 			hid_Z = HID_USAGE_Z,
 			hid_RX = HID_USAGE_RX,
@@ -95,7 +90,26 @@ namespace vXbox {
 			hid_SL1 = HID_USAGE_SL1,
 			hid_WHL = HID_USAGE_WHL,
 			hid_POV = HID_USAGE_POV;
-		// VjdStat
+		// XINPUT Deadzone and Threshold
+		static const unsigned int xinput_LAXIS_DEADZONE = XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE,
+			xinput_RAXIS_DEADZONE = XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE,
+			xinput_TRIGGER_THRESHOLD = XINPUT_GAMEPAD_TRIGGER_THRESHOLD;
+		static const unsigned int xinput_DPAD_UP = XINPUT_GAMEPAD_DPAD_UP, 
+			xinput_DPAD_DOWN = XINPUT_GAMEPAD_DPAD_DOWN, 
+			xinput_DPAD_LEFT = XINPUT_GAMEPAD_DPAD_LEFT, 
+			xinput_DPAD_RIGHT = XINPUT_GAMEPAD_DPAD_RIGHT, 
+			xinput_DPAD_OFF = 0;
+		static const unsigned int xinput_GAMEPAD_A = XINPUT_GAMEPAD_A,
+			xinput_GAMEPAD_B = XINPUT_GAMEPAD_B,
+			xinput_GAMEPAD_X = XINPUT_GAMEPAD_X,
+			xinput_GAMEPAD_Y = XINPUT_GAMEPAD_Y,
+			xinput_GAMEPAD_BACK = XINPUT_GAMEPAD_BACK,
+			xinput_GAMEPAD_START = XINPUT_GAMEPAD_START,
+			xinput_GAMEPAD_LEFT_SHOULDER = XINPUT_GAMEPAD_LEFT_SHOULDER,
+			xinput_GAMEPAD_RIGHT_SHOULDER = XINPUT_GAMEPAD_RIGHT_SHOULDER,
+			xinput_GAMEPAD_LEFT_THUMB = XINPUT_GAMEPAD_LEFT_THUMB,
+			xinput_GAMEPAD_RIGHT_THUMB = XINPUT_GAMEPAD_RIGHT_THUMB;
+			// VjdStat
 		static const int VJD_STAT_BUSY = vJoy::VJD_STAT_BUSY,
 			VJD_STAT_FREE = vJoy::VJD_STAT_FREE,
 			VJD_STAT_MISS = vJoy::VJD_STAT_MISS,
@@ -118,6 +132,7 @@ namespace vXbox {
 		bool UnPlugForce(UINT UserIndex);
 
 		// Data Transfer (Data to the device)
+		bool SetBtnAny(UINT UserIndex, bool Press, UINT xBtn);
 		bool SetBtnA(UINT UserIndex, bool Press);
 		bool SetBtnB(UINT UserIndex, bool Press);
 		bool SetBtnX(UINT UserIndex, bool Press);
@@ -128,12 +143,9 @@ namespace vXbox {
 		bool SetBtnRT(UINT UserIndex, bool Press); // Right Thumb/Stick
 		bool SetBtnLB(UINT UserIndex, bool Press); // Left Bumper
 		bool SetBtnRB(UINT UserIndex, bool Press); // Right Bumper
-		bool SetTriggerL(UINT UserIndex, BYTE Value); // Left Trigger
-		bool SetTriggerR(UINT UserIndex, BYTE Value); // Right Trigger
-		bool SetAxisX(UINT UserIndex, SHORT Value); // Left Stick X
-		bool SetAxisY(UINT UserIndex, SHORT Value); // Left Stick Y
-		bool SetAxisRx(UINT UserIndex, SHORT Value); // Right Stick X
-		bool SetAxisRy(UINT UserIndex, SHORT Value); // Right Stick Y
+		bool SetTriggerL(UINT UserIndex, BYTE Value, UINT Threshold); // Left Trigger
+		bool SetDpad(UINT UserIndex, UINT Value);
+		bool SetTriggerR(UINT UserIndex, BYTE Value, UINT Threshold); // Right Trigger
 		bool SetDpadUp(UINT UserIndex);
 		bool SetDpadRight(UINT UserIndex);
 		bool SetDpadDown(UINT UserIndex);
@@ -185,10 +197,14 @@ namespace vXbox {
 
 		// Write data
 		bool UpdateVJD(UINT rID, PVOID pData);
-		bool SetAxis(LONG Value, UINT rID, UINT Axis);
 		bool SetBtn(bool Value, UINT rID, UCHAR nBtn);
 		bool SetDiscPov(int Value, UINT rID, UCHAR nPov);
 		bool SetContPov(DWORD Value, UINT rID, UCHAR nPov);
+
+		bool SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT ValueY, UINT AxisX, UINT AxisY, UINT DeadZone);
+		// Read data
+		bool GetAxisXY(UINT UserIndex, PSHORT ValueX, PSHORT ValueY, UINT AxisX, UINT AxisY);
+		bool GetTriggerLR(UINT UserIndex, PBYTE ValueL, PBYTE ValueR);
 #pragma endregion
 	};
 }
