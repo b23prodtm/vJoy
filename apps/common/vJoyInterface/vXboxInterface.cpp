@@ -272,12 +272,12 @@ extern "C"
 
 	VJOYINTERFACE_API BOOL	__cdecl	 SetTriggerL(UINT UserIndex, BYTE Value, UINT Threshold = XINPUT_GAMEPAD_TRIGGER_THRESHOLD) // Left Trigger
 	{
-		return SetAxisXY(UserIndex, Value, 0, HID_USAGE_SL0, 0, Threshold);
+		return SetTriggerLR(UserIndex, Value, 0, Threshold);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 SetTriggerR(UINT UserIndex, BYTE Value, UINT Threshold = XINPUT_GAMEPAD_TRIGGER_THRESHOLD) // Right Trigger
 	{
-		return SetAxisXY(UserIndex, Value, 0, HID_USAGE_SL1, 0, Threshold);
+		return SetTriggerLR(UserIndex, Value, 0, Threshold);
 	}
 
 	VJOYINTERFACE_API BOOL	__cdecl	 GetLedNumber(UINT UserIndex, PBYTE pLed)
@@ -581,7 +581,9 @@ VJOYINTERFACE_API BOOL		__cdecl	UpdateVJD(UINT rID, PVOID pData)	// Update the p
 Axis DeadZones and Trigger Thresholds function (Xinput recommends)
 https://msdn.microsoft.com/en-us/library/windows/desktop/ee417001(v=vs.85).aspx
 */
-VJOYINTERFACE_API BOOL __cdecl	SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT ValueY, UINT AxisX = HID_USAGE_X, UINT AxisY = HID_USAGE_Y, UINT DeadZone = XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE)
+VJOYINTERFACE_API BOOL __cdecl	SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT ValueY, 
+	UINT AxisX = HID_USAGE_X, UINT AxisY = HID_USAGE_Y, 
+	UINT DeadZone = XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE, SHORT Axis_Max = AXIS_MAX)
 {
 
 	float LX = ValueX;
@@ -595,14 +597,14 @@ VJOYINTERFACE_API BOOL __cdecl	SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT Val
 	if (magnitude > DeadZone)
 	{
 		//clip the magnitude at its expected maximum value
-		if (magnitude > AXIS_MAX) magnitude = AXIS_MAX;
+		if (magnitude > Axis_Max) magnitude = Axis_Max;
 
 		//adjust magnitude relative to the end of the dead zone
 		magnitude -= DeadZone;
 
 		//optionally normalize the magnitude with respect to its expected range
 		//giving a magnitude value of 0.0 to 1.0
-		normalizedMagnitude = magnitude / (AXIS_MAX - DeadZone);
+		normalizedMagnitude = magnitude / (Axis_Max - DeadZone);
 
 		//determine the direction the controller is pushed
 		//ValueX = (SHORT)roundf(LX / magnitude);
@@ -615,10 +617,18 @@ VJOYINTERFACE_API BOOL __cdecl	SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT Val
 	}
 	BOOL r = TRUE;
 	if (AxisX != 0)
-		r = r && SetAxis(ValueX*normalizedMagnitude, UserIndex, AxisX);
+		r = r && SetAxis((LONG)roundf(LX*normalizedMagnitude), UserIndex, AxisX);
 	if (AxisY != 0)
-		r = r && SetAxis(ValueY*normalizedMagnitude, UserIndex, AxisY);
+		r = r && SetAxis((LONG)roundf(LY*normalizedMagnitude), UserIndex, AxisY);
 	return r;
+}
+
+VJOYINTERFACE_API BOOL __cdecl	SetTriggerLR(UINT UserIndex, SHORT ValueL, SHORT ValueR, UINT Threshold = XINPUT_GAMEPAD_TRIGGER_THRESHOLD)
+{
+	BOOL b = TRUE;
+	b= b && SetAxisXY(UserIndex, ValueL, 0, HID_USAGE_SL0, 0, Threshold, AXIS_SL_MAX);
+	b = b && SetAxisXY(UserIndex, 0, ValueR, 0, HID_USAGE_SL1, Threshold, AXIS_SL_MAX);
+	return FALSE;
 }
 
 VJOYINTERFACE_API BOOL __cdecl GetTriggerLR(UINT UserIndex, PBYTE ValueL, PBYTE ValueR, UINT AxisL, UINT AxisR) {

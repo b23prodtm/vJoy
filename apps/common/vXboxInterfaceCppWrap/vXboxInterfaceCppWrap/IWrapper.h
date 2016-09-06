@@ -1,16 +1,4 @@
 //// IWrapper.h
-//// The following ifdef block is the standard way of creating macros which make exporting 
-//// from a DLL simpler. All files within this DLL are compiled with the VXBOX_EXPORTS
-//// symbol defined on the command line. this symbol should not be defined on any project
-//// that uses this DLL. This way any other project whose source files include this file see 
-//// functions as being imported from a DLL, whereas this DLL sees symbols
-//// defined with this macro as being exported.
-//#ifdef VXBOX_EXPORTS
-//#define VXBOX_API __declspec(dllexport)
-//#else
-//#define VXBOX_API __declspec(dllimport)
-//#endif
-
 #pragma once
 #include <Xinput.h>
 #include "../../vjoyinterface/vjoyinterface.h"
@@ -18,63 +6,48 @@
 
 using namespace std;
 namespace vXbox {
-	////////////// Definitions /////////////////////////
-	//
-	//typedef struct _BUSENUM_UNPLUG_HARDWARE {
-	//	__in ULONG Size;
-	//
-	//	__in ULONG SerialNo;
-	//
-	//	__in ULONG Flags;
-	//
-	//	ULONG Reserved[1];
-	//
-	//} BUSENUM_UNPLUG_HARDWARE, *PBUSENUM_UNPLUG_HARDWARE;
-	//
-	//
-	//
-	////{F679F562-3164-42CE-A4DB-E7DDBE723909} 
-	//DEFINE_GUID(GUID_DEVINTERFACE_SCPVBUS, 0xf679f562, 0x3164, 0x42ce, 0xa4, 0xdb, 0xe7, 0xdd, 0xbe, 0x72, 0x39, 0x9);
-	//
-	//#define VBOX_BUS
-	//#define FEEDBACK_BUFFER_LENGTH 9
-	//#define MAX_NUMBER_XBOX_CTRLS 4
-	//
-	//
-	//#define AXIS_MAX	32767
-	//#define AXIS_MIN	-32768
-	//
-	//
-	//#define FILE_DEVICE_BUSENUM		FILE_DEVICE_BUS_EXTENDER
-	//#define BUSENUM_IOCTL(_index_)	CTL_CODE(FILE_DEVICE_BUSENUM, _index_, METHOD_BUFFERED, FILE_READ_DATA)
-	//#define BUSENUM_W_IOCTL(_index_)	CTL_CODE(FILE_DEVICE_BUSENUM, _index_, METHOD_BUFFERED, FILE_WRITE_DATA)
-	//#define BUSENUM_R_IOCTL(_index_)	CTL_CODE(FILE_DEVICE_BUSENUM, _index_, METHOD_BUFFERED, FILE_READ_DATA)
-	//#define BUSENUM_RW_IOCTL(_index_)	CTL_CODE(FILE_DEVICE_BUSENUM, _index_, METHOD_BUFFERED, FILE_WRITE_DATA | FILE_READ_DATA)
-	//
-	//#define IOCTL_BUSENUM_BASE 0x801
-	//
-	//#ifdef VBOX_BUS
-	//#define IOCTL_BUSENUM_PLUGIN_HARDWARE	BUSENUM_W_IOCTL(IOCTL_BUSENUM_BASE+0x0)
-	//#define IOCTL_BUSENUM_UNPLUG_HARDWARE	BUSENUM_W_IOCTL(IOCTL_BUSENUM_BASE+0x1)
-	//#define IOCTL_BUSENUM_EJECT_HARDWARE	BUSENUM_W_IOCTL(IOCTL_BUSENUM_BASE+0x2)
-	//#define IOCTL_BUSENUM_REPORT_HARDWARE	BUSENUM_RW_IOCTL(IOCTL_BUSENUM_BASE+0x3)
-	//#else
-	//#define IOCTL_BUSENUM_PLUGIN_HARDWARE	BUSENUM_IOCTL(0x0)
-	//#define IOCTL_BUSENUM_UNPLUG_HARDWARE	BUSENUM_IOCTL(0x1)
-	//#define IOCTL_BUSENUM_EJECT_HARDWARE	BUSENUM_IOCTL(0x2)
-	//#define IOCTL_BUSENUM_REPORT_HARDWARE	BUSENUM_IOCTL(0x3)
-	//#endif
-	//
-	//#define IOCTL_BUSENUM_ISDEVPLUGGED	BUSENUM_RW_IOCTL(IOCTL_BUSENUM_BASE+0x100)
-	//#define IOCTL_BUSENUM_EMPTY_SLOTS	BUSENUM_RW_IOCTL(IOCTL_BUSENUM_BASE+0x101)
-	//#define IOCTL_BUSENUM_PROC_ID		BUSENUM_RW_IOCTL(IOCTL_BUSENUM_BASE+0x102)
-	//
-	//
-	//
-	////////////// Globals /////////////////////////
-	//XINPUT_GAMEPAD g_Gamepad[MAX_NUMBER_XBOX_CTRLS];
-	//bool g_vDevice[MAX_NUMBER_XBOX_CTRLS] = { FALSE };
-	//HANDLE g_hBus = INVALID_HANDLE_VALUE;
+
+/***
+	// HID Descriptor definitions - Axes
+#define HID_USAGE_X		0x30
+#define HID_USAGE_Y		0x31
+#define HID_USAGE_Z		0x32
+#define HID_USAGE_RX	0x33
+#define HID_USAGE_RY	0x34
+#define HID_USAGE_RZ	0x35
+#define HID_USAGE_SL0	0x36
+#define HID_USAGE_SL1	0x37
+#define HID_USAGE_WHL	0x38
+#define HID_USAGE_POV	0x39
+
+	XINPUT defined constants
+		//
+		// Constants for gamepad buttons
+		//
+#define XINPUT_GAMEPAD_DPAD_UP          0x0001
+#define XINPUT_GAMEPAD_DPAD_DOWN        0x0002
+#define XINPUT_GAMEPAD_DPAD_LEFT        0x0004
+#define XINPUT_GAMEPAD_DPAD_RIGHT       0x0008
+#define XINPUT_GAMEPAD_START            0x0010
+#define XINPUT_GAMEPAD_BACK             0x0020
+#define XINPUT_GAMEPAD_LEFT_THUMB       0x0040
+#define XINPUT_GAMEPAD_RIGHT_THUMB      0x0080
+#define XINPUT_GAMEPAD_LEFT_SHOULDER    0x0100
+#define XINPUT_GAMEPAD_RIGHT_SHOULDER   0x0200
+#define XINPUT_GAMEPAD_A                0x1000
+#define XINPUT_GAMEPAD_B                0x2000
+#define XINPUT_GAMEPAD_X                0x4000
+#define XINPUT_GAMEPAD_Y                0x8000
+
+
+		//
+		// Gamepad thresholds
+		//
+#define XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE  7849
+#define XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE 8689
+#define XINPUT_GAMEPAD_TRIGGER_THRESHOLD    30
+
+*/
 
 	public ref class IWrapper
 	{
@@ -201,10 +174,11 @@ namespace vXbox {
 		bool SetDiscPov(int Value, UINT rID, UCHAR nPov);
 		bool SetContPov(DWORD Value, UINT rID, UCHAR nPov);
 
-		bool SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT ValueY, UINT AxisX, UINT AxisY, UINT DeadZone);
+		bool SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT ValueY, UINT AxisX, UINT AxisY, UINT DeadZone,SHORT Axis_Max);
 		// Read data
 		bool GetAxisXY(UINT UserIndex, PSHORT ValueX, PSHORT ValueY, UINT AxisX, UINT AxisY);
 		bool GetTriggerLR(UINT UserIndex, PBYTE ValueL, PBYTE ValueR);
+		bool SetTriggerLR(UINT UserIndex, SHORT ValueL, SHORT ValueR, UINT Threshold);
 #pragma endregion
 	};
 }

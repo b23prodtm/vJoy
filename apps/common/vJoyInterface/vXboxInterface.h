@@ -130,9 +130,11 @@ extern "C"
 	Axis DeadZones and Trigger Thresholds function (Xinput recommends)
 	https://msdn.microsoft.com/en-us/library/windows/desktop/ee417001(v=vs.85).aspx
 	*/
-	VJOYINTERFACE_API BOOL	__cdecl	 SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT ValueY, UINT AxisX, UINT AxisY, UINT DeadZone);
+	VJOYINTERFACE_API BOOL	__cdecl	 SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT ValueY, UINT AxisX, UINT AxisY, UINT DeadZone, SHORT Axis_Max);
 	VJOYINTERFACE_API BOOL __cdecl GetAxisXY(UINT UserIndex, PSHORT ValueX, PSHORT ValueY, UINT AxisX, UINT AxisY);
 	VJOYINTERFACE_API BOOL __cdecl GetTriggerLR(UINT UserIndex, PBYTE ValueL, PBYTE ValueR, UINT AxisL, UINT AxisR);
+
+	VJOYINTERFACE_API BOOL __cdecl	SetTriggerLR(UINT UserIndex, SHORT ValueL, SHORT ValueR, UINT Threshold);
 }  // extern "C"
 
 //////////// Helper Functions /////////////////////////

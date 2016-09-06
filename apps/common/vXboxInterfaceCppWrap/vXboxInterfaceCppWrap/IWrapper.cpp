@@ -203,8 +203,12 @@ inline bool vXbox::IWrapper::ResetPovs(UINT rID) {
 inline bool vXbox::IWrapper::UpdateVJD(UINT rID, PVOID pData) {
 	return ::UpdateVJD(rID, pData) == TRUE;
 }
-inline bool vXbox::IWrapper::SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT ValueY, UINT AxisX, UINT AxisY, UINT DeadZone) {
-	return ::SetAxisXY(UserIndex, ValueX, ValueY, AxisX, AxisY, DeadZone);
+inline bool vXbox::IWrapper::SetTriggerLR(UINT UserIndex, SHORT ValueL, SHORT ValueR, UINT Threshold) {
+	return ::SetTriggerLR(UserIndex, ValueL, ValueR, Threshold);
+}
+
+inline bool vXbox::IWrapper::SetAxisXY(UINT UserIndex, SHORT ValueX, SHORT ValueY, UINT AxisX, UINT AxisY, UINT DeadZone, SHORT Axis_Max) {
+	return ::SetAxisXY(UserIndex, ValueX, ValueY, AxisX, AxisY, DeadZone, Axis_Max);
 }
 inline bool vXbox::IWrapper::GetAxisXY(UINT UserIndex, PSHORT ValueX, PSHORT ValueY, UINT AxisX, UINT AxisY) {
 	return ::GetAxisXY(UserIndex, ValueX, ValueY, AxisX, AxisY);
