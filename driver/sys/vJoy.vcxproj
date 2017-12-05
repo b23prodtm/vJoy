@@ -74,7 +74,7 @@
     <Configuration>Debug</Configuration>
     <Platform Condition="'$(Platform)' == ''">Win32</Platform>
     <RootNamespace>vJoy</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.10586.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -84,9 +84,6 @@
     <ConfigurationType>Driver</ConfigurationType>
     <DriverType>KMDF</DriverType>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
-    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
-    <KMDF_VERSION_MINOR>9</KMDF_VERSION_MINOR>
-    <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'" Label="Configuration">
     <TargetVersion>Windows7</TargetVersion>
@@ -103,9 +100,6 @@
     <ConfigurationType>Driver</ConfigurationType>
     <DriverType>KMDF</DriverType>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
-    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
-    <KMDF_VERSION_MINOR>9</KMDF_VERSION_MINOR>
-    <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|Win32'" Label="Configuration">
     <TargetVersion>Windows7</TargetVersion>
@@ -122,9 +116,6 @@
     <ConfigurationType>Driver</ConfigurationType>
     <DriverType>KMDF</DriverType>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
-    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
-    <KMDF_VERSION_MINOR>9</KMDF_VERSION_MINOR>
-    <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|x64'" Label="Configuration">
     <TargetVersion>Windows7</TargetVersion>
@@ -163,9 +154,6 @@
     <ConfigurationType>Driver</ConfigurationType>
     <DriverType>KMDF</DriverType>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
-    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
-    <KMDF_VERSION_MINOR>9</KMDF_VERSION_MINOR>
-    <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|ARM'" Label="Configuration">
     <TargetVersion>Windows7</TargetVersion>
@@ -182,9 +170,6 @@
     <ConfigurationType>Driver</ConfigurationType>
     <DriverType>KMDF</DriverType>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
-    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
-    <KMDF_VERSION_MINOR>9</KMDF_VERSION_MINOR>
-    <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|ARM'" Label="Configuration">
     <TargetVersion>Windows7</TargetVersion>
@@ -201,9 +186,6 @@
     <ConfigurationType>Driver</ConfigurationType>
     <DriverType>KMDF</DriverType>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
-    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
-    <KMDF_VERSION_MINOR>9</KMDF_VERSION_MINOR>
-    <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|ARM64'" Label="Configuration">
     <TargetVersion>Windows7</TargetVersion>
@@ -220,9 +202,6 @@
     <ConfigurationType>Driver</ConfigurationType>
     <DriverType>KMDF</DriverType>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
-    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
-    <KMDF_VERSION_MINOR>9</KMDF_VERSION_MINOR>
-    <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|ARM64'" Label="Configuration">
     <TargetVersion>Windows7</TargetVersion>
@@ -247,9 +226,6 @@
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <EnableInf2cat>false</EnableInf2cat>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -258,7 +234,6 @@
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <EnableInf2cat>false</EnableInf2cat>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -266,10 +241,9 @@
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(VC_IncludePath);$(IncludePath)</IncludePath>
     <EnableInf2cat>false</EnableInf2cat>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|Win32'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -289,9 +263,6 @@
     <EnableInf2cat>false</EnableInf2cat>
     <Inf2CatWindowsVersionList>7_x64;$(Inf2CatWindowsVersionList)</Inf2CatWindowsVersionList>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|x64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -301,7 +272,6 @@
     <EnableInf2cat>false</EnableInf2cat>
     <Inf2CatWindowsVersionList>7_x64;$(Inf2CatWindowsVersionList)</Inf2CatWindowsVersionList>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -311,9 +281,6 @@
     <Inf2CatWindowsVersionList>10_$(DDKPlatform);7_$(DDKPlatform)</Inf2CatWindowsVersionList>
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|x64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -323,7 +290,6 @@
     <Inf2CatWindowsVersionList>10_$(DDKPlatform);7_$(DDKPlatform)</Inf2CatWindowsVersionList>
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -331,9 +297,6 @@
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(VC_ExecutablePath_ARM);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|ARM'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -341,7 +304,6 @@
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(VC_ExecutablePath_ARM);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -349,9 +311,6 @@
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(VC_ExecutablePath_ARM);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|ARM'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -359,7 +318,6 @@
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(VC_ExecutablePath_ARM);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -368,9 +326,6 @@
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <EnableInf2cat>false</EnableInf2cat>
     <ExecutablePath>$(VCInstallDir)bin\x86_ARM64;$(VCInstallDir)bin;$(WindowsSDK_ExecutablePath_x86);$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(MSBuildToolsPath32);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|ARM64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -379,7 +334,6 @@
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <EnableInf2cat>false</EnableInf2cat>
     <ExecutablePath>$(VCInstallDir)bin\x86_ARM64;$(VCInstallDir)bin;$(WindowsSDK_ExecutablePath_x86);$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(MSBuildToolsPath32);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -388,9 +342,6 @@
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <EnableInf2cat>false</EnableInf2cat>
     <ExecutablePath>$(VCInstallDir)bin\x86_ARM64;$(VCInstallDir)bin;$(WindowsSDK_ExecutablePath_x86);$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(MSBuildToolsPath32);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|ARM64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -399,13 +350,11 @@
     <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <EnableInf2cat>false</EnableInf2cat>
     <ExecutablePath>$(VCInstallDir)bin\x86_ARM64;$(VCInstallDir)bin;$(WindowsSDK_ExecutablePath_x86);$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(MSBuildToolsPath32);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <CodeAnalysisRuleSet>..\..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\CodeAnalysis\DriverMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <ClCompile>
       <TreatWarningAsError>false</TreatWarningAsError>
       <PreprocessorDefinitions>_ARM64_;ARM64;_USE_DECLSPECS_FOR_SAL=1;STD_CALL;%(PreprocessorDefinitions);POOL_NX_OPTIN=1</PreprocessorDefinitions>
-      <EnablePREfast>false</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>Ntstrsafe.lib;%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib</AdditionalDependencies>
@@ -438,7 +387,6 @@
     <ClCompile>
       <TreatWarningAsError>false</TreatWarningAsError>
       <PreprocessorDefinitions>_ARM64_;ARM64;_USE_DECLSPECS_FOR_SAL=1;STD_CALL;%(PreprocessorDefinitions);POOL_NX_OPTIN=1</PreprocessorDefinitions>
-      <EnablePREfast>false</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>Ntstrsafe.lib;%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib</AdditionalDependencies>
@@ -472,7 +420,6 @@
       <TreatWarningAsError>false</TreatWarningAsError>
       <AdditionalIncludeDirectories>.;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_X86_=1;i386=1;STD_CALL;%(PreprocessorDefinitions);POOL_NX_OPTIN=1</PreprocessorDefinitions>
-      <EnablePREfast>false</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>Ntstrsafe.lib;%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib</AdditionalDependencies>
@@ -546,7 +493,6 @@
     <ClCompile>
       <TreatWarningAsError>false</TreatWarningAsError>
       <PreprocessorDefinitions>_ARM_;ARM;_USE_DECLSPECS_FOR_SAL=1;STD_CALL;%(PreprocessorDefinitions);POOL_NX_OPTIN=1</PreprocessorDefinitions>
-      <EnablePREfast>false</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>Ntstrsafe.lib;%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib</AdditionalDependencies>
@@ -579,7 +525,6 @@
     <ClCompile>
       <TreatWarningAsError>false</TreatWarningAsError>
       <PreprocessorDefinitions>_ARM_;ARM;_USE_DECLSPECS_FOR_SAL=1;STD_CALL;%(PreprocessorDefinitions);POOL_NX_OPTIN=1</PreprocessorDefinitions>
-      <EnablePREfast>false</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>Ntstrsafe.lib;%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib</AdditionalDependencies>
@@ -613,7 +558,6 @@
       <TreatWarningAsError>false</TreatWarningAsError>
       <AdditionalIncludeDirectories>.;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions);POOL_NX_OPTIN=1</PreprocessorDefinitions>
-      <EnablePREfast>false</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>Ntstrsafe.lib;%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib</AdditionalDependencies>
@@ -650,7 +594,6 @@
       <TreatWarningAsError>false</TreatWarningAsError>
       <AdditionalIncludeDirectories>.;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions);POOL_NX_OPTIN=1</PreprocessorDefinitions>
-      <EnablePREfast>false</EnablePREfast>
     </ClCompile>
     <Link>
       <AdditionalDependencies>Ntstrsafe.lib;%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib</AdditionalDependencies>

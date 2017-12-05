@@ -1,7 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 
-#include "stdafx.h"
+#include "../../stdafx.h"
 #include <Xinput.h>
+#include "../../../../inc/public.h"
 #include "../../vGenInterface.h"
 
 void TopLoop(UINT iDev);
@@ -289,7 +290,7 @@ void PressDpad(UINT iDev)
 			continue;
 		}
 
-		for (size_t i = 0; i < len; i++)
+		for (int i = 0; i < len; i++)
 		{
 			if (tolower(Side[i]) == 'u')
 				Flags |= XINPUT_GAMEPAD_DPAD_UP;
