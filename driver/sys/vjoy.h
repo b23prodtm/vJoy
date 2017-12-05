@@ -1230,15 +1230,9 @@ typedef struct _DEVICE_EXTENSION{ // Needs to be changed
 	WDFIOTARGET IoTargetToSelf;
 
 	//
-	// Array of Joystick Position Values - One for each joystick (Index = ID-1)
+	// Array of Joystick Values - One for each joystick (Index = ID-1)
 	PDEVICE_POSITION_V2 positions[MAX_N_DEVICES];
 	int nDevices;
-
-	// Array of booleans that indicates that the data in position structure is ready to be read 
-	// Or already read.
-	// Once data is loaded the corresponding variable is set
-	// After the data was read this variable is reset
-	BOOLEAN PositionReady[MAX_N_DEVICES];
 
 	// Array that tells the driver which of the 16 vJoy devices is actually implemented
 	BOOLEAN DeviceImplemented[MAX_N_DEVICES];
@@ -1468,7 +1462,7 @@ vJoyCompleteReadReport(
 	UCHAR		id
 	);
 
-NTSTATUS
+VOID
 vJoyGetPositionData(
 	IN HID_INPUT_REPORT_V2	*HidReport, 
 	IN DEVICE_EXTENSION		*pDevContext,
@@ -1537,15 +1531,7 @@ LoadPositions(
 	PJOYSTICK_POSITION_V2 pReport,
 	PDEVICE_EXTENSION	pDevContext,
 	size_t				buffsize
-);
-
-VOID
-GetPositions(
-	PJOYSTICK_POSITION_V2 pPosition,
-	PDEVICE_EXTENSION	pDevContext,
-	UCHAR				id,
-	size_t				buffsize
-);
+	);
 
 #ifdef PPJOY_MODE
 VOID
@@ -1673,15 +1659,15 @@ BOOLEAN FfbActiveGet(
 	PDEVICE_EXTENSION    pDevContext
 	);
 
-EVT_WDF_IO_QUEUE_STATE   FfbNotifyWrite/*(
+VOID FfbNotifyWrite(
 	WDFQUEUE Queue,
 	WDFCONTEXT Context
-	)*/;
+	);
 
-EVT_WDF_IO_QUEUE_STATE FfbNotifyRead/*(
+VOID FfbNotifyRead(
 	WDFQUEUE Queue,
 	WDFCONTEXT Context
-	)*/;
+	);
 
 VOID FfbTransferData(
 	PDEVICE_EXTENSION devContext,

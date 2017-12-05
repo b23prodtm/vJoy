@@ -55,8 +55,8 @@ SolidCompression=true
 DefaultDirName={pf}\{#MyShortAppName}
 DefaultGroupName={#MyShortAppName}
 VersionInfoCompany=Shaul Eizikovich
-AppCopyright=Copyright (c) 2005-2016 by Shaul Eizikovich
-MinVersion = 6.0.6000
+AppCopyright=Copyright (c) 2005-2015 by Shaul Eizikovich
+MinVersion = 5.1.2600sp1
 
 ;SignTool=DigiCert sign /sha1 "6d 54 71 df 6b bf af a5 d5 90 0c 88 c0 8d f0 e9 c5 13 69 0a"  /noInput  $f
 SignTool=sig sign /a /v /i DigiCert /t http://timestamp.digicert.com $f
@@ -65,7 +65,6 @@ DisableDirPage=yes
 DisableProgramGroupPage=yes
 DisableReadyMemo=true
 DisableFinishedPage=true
-DisableWelcomePage=no
 PrivilegesRequired=admin
 ArchitecturesInstallIn64BitMode=x64
 SetupLogging=true
@@ -103,10 +102,6 @@ Source: "{#vJoyAppsx64}\LBIndustrialCtrls.dll"; DestDir: "{app}\{#DestSubDirX64}
 ; Monitor
 Source: "{#vJoyMonDirx86}\JoyMonitor.exe"; DestDir: "{app}\{#DestSubDirX86}"; Components: Apps\vJoyMon; Check: IsX86
 Source: "{#vJoyMonDirx64}\JoyMonitor.exe"; DestDir: "{app}\{#DestSubDirX64}"; Components: Apps\vJoyMon; Check: IsX64
-; vJoyList
-Source: "{#vJoyAppsx86}\vJoyList.exe"; DestDir: "{app}\{#DestSubDirX86}"; Components: Apps\vJoyList; Check: IsX86
-Source: "{#vJoyAppsx64}\vJoyList.exe"; DestDir: "{app}\{#DestSubDirX64}"; Components: Apps\vJoyList; Check: IsX64
-
 
 [Icons]
 Name: "{group}\Uninstall vJoy"; Filename: "{uninstallexe}"
@@ -118,8 +113,6 @@ Name: "{group}\Configure vJoy"; Filename: "{app}\{#DestSubDirX64}\vJoyConf.exe";
 Name: "{group}\vJoy Feeder (Demo)"; Filename: "{app}\{#DestSubDirX64}\vJoyFeeder.exe"; Components: Apps\vJoyFeeder ; Check: IsX64
 Name: "{group}\vJoy Home"; Filename: "http://vjoystick.sourceforge.net/site"; Comment: "vJoy site"; IconFilename:  "{#vJoyIconFile}"
 Name: "{group}\vJoy SDK"; Filename: "http://vjoystick.sourceforge.net/redirect_download_vJoy2SDK.php"; Comment: "vJoy SDK"; IconFilename:  "{#vJoyIconFile}"
-Name: "{group}\vJoy Device List"; Filename: "{app}\{#DestSubDirX64}\vJoyList.exe"; Components: Apps\vJoyList ; Check: IsX64
-Name: "{group}\vJoy Device List"; Filename: "{app}\{#DestSubDirX86}\vJoyList.exe"; Components: Apps\vJoyList ; Check: IsX86
 
 [Registry]
 Root: HKCU; Subkey: "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_1234&PID_BEAD"; ValueName: "OEMName";  ValueType: none; Flags:deletevalue  uninsdeletevalue
@@ -140,7 +133,6 @@ Name: "Apps"; Description: "Companion Applications"; Types: Custom
 Name: "Apps\vJoyFeeder"; Description: "Demo vJoy Feeder application"; Types: Custom; Flags: checkablealone
 Name: "Apps\vJoyConf"; Description: "vJoy Configuration application"; Types: Custom; Flags: checkablealone
 Name: "Apps\vJoyMon"; Description: "vJoy Monitoring application"; Types: Custom; Flags: checkablealone
-Name: "Apps\vJoyList"; Description: "vJoy Device Listing application"; Types: Custom; Flags: checkablealone
 
 [Code]
 const
@@ -188,6 +180,7 @@ const
 var
 		SkipToPh2: 		boolean; (* True is installer resumes installation after Set Test mode & restart*)
 		OrigTestMode:	Boolean; (* Value of the original Test Mode *)
+		CalledBySpp:	Boolean; (* True is installer called by SPP Installer *)
 		DldRestart:		Boolean; (* True if delayed restart requested *)
 
 (* Forward Function declarations - Start *)
@@ -236,6 +229,8 @@ var
   Len: Longint;
   Res: Boolean;
   Names: TArrayOfString;
+  I: Integer;
+  S: String;
 
 begin
   // Get the first subkey under 'HIDCLASS' - expected values are 0000 or 0001
@@ -362,6 +357,9 @@ end;
 // Special version of the standard message box
 // If in VerySilent mode - dialog box supressed and message is sent to log file
 function vJoyMsgBox(const Text: String; const Typ: TMsgBoxType; const Buttons: Integer): Integer;
+
+var 
+  MsgBoxReturned: Integer;
 
 begin
   Result :=  IDOK;
@@ -506,6 +504,10 @@ end;
 (* Pre & Post-install operations *)
 procedure CurStepChanged(CurStep: TSetupStep);
 
+var
+  TmpFileName, ExecStdout, msg: string;
+  ResultCode: Integer;
+
 begin
 //	if  CurStep=ssInstall then
 //		MsgBox('CurStepChanged(ssInstall)' , mbInformation, MB_OK);	
@@ -560,6 +562,8 @@ end;
 *)
 
 function PrepareToInstall(var NeedsRestart: Boolean): String;
+var
+  RunOnceData: String;
   
 begin
 // Default
@@ -936,7 +940,7 @@ end;
 // Returns TRUE if need to restart
 function Exec_vJoyInstall(): Boolean;
 var
-  TmpFileName, msg: string;
+  TmpFileName, ExecStdout, msg: string;
   ResultCode: Integer;
   
   Begin
